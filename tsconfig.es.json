@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": false,
+    "outDir": "dist/es",
+    "module": "esnext"
+  },
+  "exclude": ["test"]
+}
