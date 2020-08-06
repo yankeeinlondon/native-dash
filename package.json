@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -9,9 +9,9 @@
     "dist"
   ],
   "scripts": {
-    "autoindex": "yarn do autoindex",
     "clean": "rimraf dist",
-    "build": "run-s clean build:es build:cjs",
+    "build": "run-s clean autoindex build:es build:cjs",
+    "autoindex": "yarn do autoindex",
     "build:es": "tsc -P tsconfig.es.json",
     "build:cjs": "tsc -P tsconfig.cjs.json",
     "test": "echo \"Error: no test specified\" && exit 1"
