@@ -1,16 +1,10 @@
 /**
  * **flatten**
- * 
- * _flattens_ the array structure to be a single level deep. For
- * example: 
-```typescript
-const example = [ [ 0, 128, 255 ], [ 255, 192, 0 ] ];
-console.log(flatten(example)); // [ 0, 128, 255, 255, 192, 0 ]
-``` 
- * 
- * 
- * @param arr the array of elements and possibly arrays of arrays
+ *
+ * > If you know that your run-time supports using the native `[ ].flat()` language feature
+ * (which all modern node runtimes and browsers largely outside of IE11 do then you should
+ * use this instead).
  */
-export function flatten(arr: any[]) {
-  return arr.reduce((acc, val) => acc.concat(val));
+export function flatten<T = any>(arr: T[]) {
+  return arr.flat ? arr.flat() : arr.reduce((acc: T[], val: T) => acc.concat(val), []);
 }
