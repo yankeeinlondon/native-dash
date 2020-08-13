@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -9,24 +9,30 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist/es dist/cjs dist/@types",
     "build": "run-s clean autoindex build:es build:cjs",
     "autoindex": "yarn do autoindex",
     "build:es": "tsc -P tsconfig.es.json",
     "build:cjs": "tsc -P tsconfig.cjs.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "uvu -r ts-node/register tests"
   },
   "author": "Ken Snyder <ken@ken.net>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jest": "^26.0.4",
+    "@types/node": "12.0.0",
+    "@types/node-fetch": "^2.5.7",
     "do-devops": "^0.3.20",
     "jest": "^26.1.0",
     "jest-extended": "^0.11.5",
     "npm-run-all": "^4.1.5",
+    "rollup": "^2.24.0",
+    "rollup-plugin-typescript2": "^0.27.2",
     "ts-jest": "^26.1.1",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "typescript": "^4.0.1-rc",
+    "uvu": "^0.3.3"
   }
 }

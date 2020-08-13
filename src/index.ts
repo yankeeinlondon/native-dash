@@ -1,16 +1,18 @@
 //#autoindex
 //#region autoindexed files
-// indexed at: 8th Aug, 2020, 11:46 AM ( GMT-7 )
+// indexed at: 8th Aug, 2020, 12:55 PM ( GMT-7 )
 // local file exports
 export * from "./IDictionary";
 export * from "./atRandom";
 export * from "./between";
+export * from "./deserialize";
 export * from "./first";
 export * from "./firstKey";
 export * from "./flatten";
 export * from "./get";
 export * from "./last";
 export * from "./lastKey";
+export * from "./serialize";
 export * from "./set";
 export * from "./unique";
 //#endregion

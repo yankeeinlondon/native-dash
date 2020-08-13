@@ -8,9 +8,9 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true
   },
   "files": ["global.d.ts"],
-  "include": ["src", "global.d.ts", "test"]
+  "include": ["src", "global.d.ts", "tests"]
 }
