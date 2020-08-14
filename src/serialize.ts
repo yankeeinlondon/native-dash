@@ -1,12 +1,12 @@
 // import type { Request} from  'node-fetch'
-export type url = [url: string, fetch: typeof fetch];
-export type filename = string;
+// export type url = [url: string, fetch: typeof fetch];
+// export type filename = string;
 
 /**
  * converts an array of _things_ into a `\n` delimited
- * string of stringified objects. 
- * 
- * FUTURE: If a **source** is passed in 
+ * string of stringified objects.
+ *
+ * FUTURE: If a **source** is passed in
  * -- either a _file_ or _url_ then it will stream to that
  * source.
  *
