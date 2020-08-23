@@ -4,6 +4,6 @@ import { IDictionary } from "./IDictionary";
  *
  * returns the _first_ key in a dictionary
  */
-export function firstKey<T = any>(dict: IDictionary<T>) {
-  return Object.keys(dict).slice(0, 1);
+export function firstKey(dict: IDictionary): undefined | (string & keyof typeof dict) {
+  return Object.keys(dict).slice(0, 1).pop();
 }
