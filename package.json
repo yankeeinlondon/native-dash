@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -25,6 +25,7 @@
     "@types/node": "12.0.0",
     "@types/node-fetch": "^2.5.7",
     "do-devops": "^0.3.20",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
     "jest-extended": "^0.11.5",
     "npm-run-all": "^4.1.5",
@@ -34,5 +35,11 @@
     "ts-node": "^8.10.2",
     "typescript": "^4.0.1-rc",
     "uvu": "^0.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-merge-commit": "yarn build && yarn do validate TscFailure --error=release && yarn do validate TestingFailure --error=release && yarn do validate NpmVersion --error develop",
+      "pre-commit": "yarn do validate TscFailure --default warn --error develop && yarn do validate TestingFailure --error develop && yarn do validate NpmVersion --warn release,hotfix"
+    }
   }
 }
