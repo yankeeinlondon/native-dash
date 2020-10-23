@@ -2,7 +2,7 @@ import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { atRandom, between } from "../src";
 
-const random = suite("random functions");
+const random = suite("atRandom function");
 
 random("atRandom chooses from list", () => {
   const choices = ["foo", "bar", "baz"];
