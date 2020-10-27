@@ -2,9 +2,9 @@
 
 // #region autoindexed files
 
-// index last changed at: 10th Oct, 2020, 08:15 AM ( GMT-7 )
+// index last changed at: 10th Oct, 2020, 01:34 PM ( GMT-7 )
 // export: named; exclusions: index, private.
-// files: IDictionary, atRandom, between, deserialize, first, firstKey, flatten, get, guid, isGuid, last, lastKey, randomString, serialize, set, unique.
+// files: IDictionary, atRandom, between, deserialize, first, firstKey, flatten, get, guid, hash, isGuid, last, lastKey, randomString, serialize, set, unique, uuid.
 
 // local file exports
 export * from "./IDictionary";
@@ -16,6 +16,7 @@ export * from "./firstKey";
 export * from "./flatten";
 export * from "./get";
 export * from "./guid";
+export * from "./hash";
 export * from "./isGuid";
 export * from "./last";
 export * from "./lastKey";
@@ -23,6 +24,7 @@ export * from "./randomString";
 export * from "./serialize";
 export * from "./set";
 export * from "./unique";
+export * from "./uuid";
 
 // Note:
 // -----
