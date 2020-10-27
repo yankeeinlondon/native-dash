@@ -1,26 +1,26 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { guid } from "../src/guid";
+import { uuid } from "../src/uuid";
 
-const t = suite("guid() function");
+const t = suite("uuid() function");
 
 t("twenty rapidly requested IDs are unique", () => {
   const testIds: string[] = [];
   for (const [i] of Array(20).entries()) {
-    testIds.push(guid());
+    testIds.push(uuid());
   }
   const unique = new Set<string>(testIds);
   assert.equal(testIds.length, unique.size, "all ids generated must be unique");
 });
 
-t("guid is correct format: ", () => {
+t("uuid is correct format: ", () => {
   const testIds: string[] = [];
   for (const [i] of Array(20).entries()) {
-    testIds.push(guid());
+    testIds.push(uuid());
   }
-  testIds.forEach((guid) => {
+  testIds.forEach((uuid) => {
     const isValid = /^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$/;
-    assert.ok(isValid.test(guid), `The value "${guid}" is not considered a valid GUID`);
+    assert.ok(isValid.test(uuid), `The value "${uuid}" is not considered a valid uuid`);
   });
 });
 
