@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -14,31 +14,30 @@
     "autoindex": "yarn do autoindex",
     "build:es": "tsc -P tsconfig.es.json",
     "build:cjs": "tsc -P tsconfig.cjs.json",
-    "test": "uvu -r ts-node/register tests",
+    "test": "uvu -r ts-node/register tests --ignore fixtures",
     "watch": "run-p watch:*",
     "watch:autoindex": "yarn do autoindex -w",
     "watch:es": "yarn tsc -P tsconfig.es.json -w",
-    "watch:cjs": "yarn tsc -P tsconfig.cjs.json -w"
+    "watch:cjs": "yarn tsc -P tsconfig.cjs.json -w",
+    "watch:test": "watchlist src tests -- yarn test"
   },
   "author": "Ken Snyder <ken@ken.net>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",
-    "@types/jest": "^26.0.15",
+    "@type-challenges/utils": "^0.1.1",
     "@types/node": "12.0.0",
     "@types/node-fetch": "^2.5.7",
     "do-devops": "^0.5.4",
     "husky": "^4.3.0",
-    "jest": "^26.6.1",
-    "jest-extended": "^0.11.5",
     "npm-run-all": "^4.1.5",
     "rollup": "^2.32.1",
-    "rollup-plugin-typescript2": "^0.28.0",
-    "ts-jest": "^26.4.1",
+    "rollup-plugin-typescript2": "^0.29.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
-    "uvu": "^0.3.4"
+    "uvu": "^0.4.0",
+    "watchlist": "^0.2.3"
   },
   "husky": {
     "hooks": {
