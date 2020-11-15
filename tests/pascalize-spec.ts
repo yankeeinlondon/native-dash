@@ -19,6 +19,7 @@ t("snake_case is converted correctly", () => {
 
 t("PascalCase is converted correctly", () => {
   assert.equal(pascalize("dash-me"), "DashMe");
+  assert.equal(pascalize("dash_me"), "DashMe");
   assert.equal(pascalize("dash-for-css"), "DashForCss");
   assert.equal(pascalize(" dash-me "), " DashMe ");
 });
