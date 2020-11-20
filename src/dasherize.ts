@@ -11,7 +11,6 @@
  */
 export function dasherize(input: string) {
   const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(input) as RegExpExecArray;
-  console.log({ preWhite, focus, postWhite });
 
   const replaceWhitespace = (i: string) => i.replace(/\s/gs, "-");
   const replaceUppercase = (i: string) => i.replace(/[A-Z]/g, (c) => `-${c[0].toLowerCase()}`);
