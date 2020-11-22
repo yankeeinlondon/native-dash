@@ -1,9 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
     "noEmit": false,
-    "outDir": "dist/es",
+    "outDir": "dist/@types",
     "module": "esnext",
     "declarationDir": "dist/@types"
   },
