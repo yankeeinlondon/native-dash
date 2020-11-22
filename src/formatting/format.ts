@@ -1,5 +1,4 @@
 import { IFormattingOptions } from "./fluent-types";
-import { formattingApi } from "./private/formatting-api";
 
 /** _italicize_ a block of text */
 export function italicize(text: string = "") {
@@ -20,8 +19,8 @@ export function strikethrough(text: string = "") {
  * Look through a _corpus_ of text for a particular string and
  * then format for the console.
  */
-export function format(find: string, global: boolean = true) {
-  let config: IFormattingOptions = {};
+// export function format(find: string, global: boolean = true) {
+//   let config: IFormattingOptions = {};
 
-  return formattingApi<"in">(find, global, config);
-}
+//   return formattingApi<"in">(find, global, config);
+// }
