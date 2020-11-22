@@ -6,7 +6,7 @@ import { paint } from "./private/index";
  *
  * Choose a foreground color and optionally a background color.
  */
-export const color: Record<string, ColorFormatter> = {
+export const color = {
   red: (text: string = "", bg?: ColorConfigurator) => {
     return paint(text, (c) => c.red, bg);
   },

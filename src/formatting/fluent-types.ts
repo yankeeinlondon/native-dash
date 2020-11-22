@@ -1,5 +1,15 @@
 import { COLOR } from "./private";
 
+export type IColor =
+  | "black"
+  | "red"
+  | "magenta"
+  | "yellow"
+  | "green"
+  | "brightRed"
+  | "brightGreen"
+  | "brightYellow";
+
 export type Color = keyof typeof COLOR;
 export type ColorConfigurator = (color: typeof COLOR) => [fg: number, bg: number];
 

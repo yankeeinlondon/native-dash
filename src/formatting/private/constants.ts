@@ -1,7 +1,13 @@
+import { IColor } from "../fluent-types";
+
 export const RESET_FG = `\u001b[39m`;
 export const RESET_BG = `\u001b[49m`;
 
-export const COLOR: Record<string, [fg: number, bg: number]> = {
+/**
+ * A dictionary of colors; first value is foreground,
+ * second is background.
+ */
+export const COLOR: Record<IColor, [fg: number, bg: number]> = {
   black: [30, 40],
   red: [31, 41],
   magenta: [35, 45],
