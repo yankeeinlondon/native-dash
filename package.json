@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "autoindex": "yarn do autoindex",
-    "build": "run-s clean autoindex build:lib build:types",
+    "build": "run-s clean autoindex build:closure build:types",
     "build:analyze": "ANALYZE=true yarn build",
     "build:closure": "node ./devops/build cjs es --min --closure",
     "build:lib": "node ./devops/build cjs es --min",
