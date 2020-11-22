@@ -10,7 +10,7 @@
  * using both the above format and the non-dasherized version. Default behavior is _not_
  * to allow the non-dasherized form.
  */
-export function isGuid(candidate: string, allowNonDashedForm?: boolean) {
+export function isUuid(candidate: string, allowNonDashedForm?: boolean) {
   const dasherizedGuid = /^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$/;
   const plainGuid = /^(\{{0,1}([0-9a-fA-F]){32}\}{0,1})$/;
 

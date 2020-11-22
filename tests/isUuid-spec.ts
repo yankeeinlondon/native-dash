@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { isGuid } from "../src/isGuid";
+import { isUuid } from "../src/isUuid";
 
 const t = suite("isGuid() function");
 
@@ -14,13 +14,13 @@ const valid = [
 
 t("correctly validates valid GUIDs", () => {
   valid.forEach((guid) =>
-    assert.ok(isGuid(guid, true), `The valid GUID "${guid}" was reported as invalid`)
+    assert.ok(isUuid(guid, true), `The valid GUID "${guid}" was reported as invalid`)
   );
 });
 
 t("correctly validates dashed GUIDs while rejecting non dashed", () => {
   valid.forEach((guid) =>
-    guid.includes("-") ? assert.ok(isGuid(guid)) : assert.not(isGuid(guid))
+    guid.includes("-") ? assert.ok(isUuid(guid)) : assert.not(isUuid(guid))
   );
 });
 
@@ -34,7 +34,7 @@ const invalid = [
 
 t("correctly invalidates invalid GUIDs", () => {
   invalid.forEach((guid) =>
-    assert.not(isGuid(guid, true), `The invalid GUID "${guid}" was reported as valid!`)
+    assert.not(isUuid(guid, true), `The invalid GUID "${guid}" was reported as valid!`)
   );
 });
 
