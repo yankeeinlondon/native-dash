@@ -1,38 +1,16 @@
-//#autoindex
+// #autoindex, orphan
 
 // #region autoindexed files
 
-// index last changed at: 11th Nov, 2020, 07:24 AM ( GMT-8 )
+// index last changed at: 11th Nov, 2020, 07:45 AM ( GMT-8 )
 // export: named; exclusions: index, private.
-// files: IDictionary, atRandom, between, camelize, capitalize, dasherize, deserialize, first, firstKey, flatten, get, guid, hash, isGuid, last, lastKey, pascalize, randomString, serialize, set, unique, uuid.
-// directories: formatting.
+// files: constants, formatting-api, paint, replace.
 
 // local file exports
-export * from "./IDictionary";
-export * from "./atRandom";
-export * from "./between";
-export * from "./camelize";
-export * from "./capitalize";
-export * from "./dasherize";
-export * from "./deserialize";
-export * from "./first";
-export * from "./firstKey";
-export * from "./flatten";
-export * from "./get";
-export * from "./guid";
-export * from "./hash";
-export * from "./isGuid";
-export * from "./last";
-export * from "./lastKey";
-export * from "./pascalize";
-export * from "./randomString";
-export * from "./serialize";
-export * from "./set";
-export * from "./unique";
-export * from "./uuid";
-
-// directory exports
-export * from "./formatting/index";
+export * from "./constants";
+export * from "./formatting-api";
+export * from "./paint";
+export * from "./replace";
 
 // Note:
 // -----
