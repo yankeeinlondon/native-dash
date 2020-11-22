@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { COLOR } from "../src/formatting/private";
+import { COLOR, RESET_FG } from "../src/formatting/private";
 
 const t = suite("console formatting");
 
@@ -30,8 +30,15 @@ t("format() available from entry index file", async () => {
 t("color foreground colors set", async () => {
   const { color } = await import("../src/index");
   const input = "foobar";
+  assert.ok(color.red(input).includes(input));
   assert.ok(color.red(input).includes(String(COLOR.red[0])));
   assert.ok(color.magenta(input).includes(String(COLOR.magenta[0])));
+});
+
+t("foreground reset included when setting colors", async () => {
+  const { color } = await import("../src/index");
+  const input = "foobar";
+  assert.ok(color.red(input).includes(String(RESET_FG)));
 });
 
 t.run();
