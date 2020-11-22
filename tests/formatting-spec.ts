@@ -41,4 +41,10 @@ t("foreground reset included when setting colors", async () => {
   assert.ok(color.red(input).includes(String(RESET_FG)));
 });
 
+t("background reset included when setting background", async () => {
+  const { color } = await import("../src/index");
+  const input = "foobar";
+  assert.ok(color.red(input).includes(String(RESET_FG)));
+});
+
 t.run();

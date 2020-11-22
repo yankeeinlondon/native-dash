@@ -1,14 +1,13 @@
-// #autoindex, orphan
+// #autoindex, orphan, exclude: formatting-api
 
 // #region autoindexed files
 
-// index last changed at: 11th Nov, 2020, 07:45 AM ( GMT-8 )
-// export: named; exclusions: index, private.
-// files: constants, formatting-api, paint, replace.
+// index last changed at: 11th Nov, 2020, 12:37 PM ( GMT-8 )
+// export: named; exclusions: formatting-api, index, private.
+// files: constants, paint, replace.
 
 // local file exports
 export * from "./constants";
-export * from "./formatting-api";
 export * from "./paint";
 export * from "./replace";
 
