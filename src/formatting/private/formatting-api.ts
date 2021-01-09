@@ -14,7 +14,10 @@
 //       return formattingApi<X | "withItalics">(find, global, { ...config, italics: true });
 //     },
 //     withUnderline: () => {
-//       return formattingApi<X | "withUnderline">(find, global, { ...config, underline: true });
+//       return formattingApi<X | "withUnderline">(find, global, {
+//         ...config,
+//         underline: true,
+//       });
 //     },
 //     withStrikethrough: () => {
 //       return formattingApi<X | "withStrikethrough">(find, global, {

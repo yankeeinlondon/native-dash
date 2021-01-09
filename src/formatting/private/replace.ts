@@ -1,6 +1,6 @@
 import { IFormattingOptions } from "../fluent-types";
 import { italicize, strikethrough, underline } from "../format";
-import { paint } from "./index";
+import { paint } from "./paint";
 
 export function replace(
   find: string,
