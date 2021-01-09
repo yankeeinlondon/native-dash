@@ -1,4 +1,4 @@
-import { COLOR, RESET_BG, RESET_FG } from "./index";
+import { COLOR, RESET_BG, RESET_FG } from "./constants";
 import { ColorConfigurator } from "../fluent-types";
 
 export function paint(text: string = "", fg: ColorConfigurator, bg?: ColorConfigurator) {
