@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable @typescript-eslint/no-var-requires */
 const rollup = require("rollup");
 const commonjs = require("@rollup/plugin-commonjs");
@@ -18,7 +19,9 @@ const switches = process.argv
     return acc;
   }, {});
 
-const usesTypescript = Object.keys(pkg.devDependencies).includes("typescript") ? true : false;
+const usesTypescript = Object.keys(pkg.devDependencies).includes("typescript")
+  ? true
+  : false;
 
 // makes all non-core deps external; allowing consuming app to gain better reuse
 const external = [
@@ -47,7 +50,9 @@ const moduleConfig = (moduleSystem, minimized) => {
         declaration: false,
       }),
 
-      ...(moduleSystem === "es" && (process.env.ANALYZE || switches.analyze) ? [analyze()] : []),
+      ...(moduleSystem === "es" && (process.env.ANALYZE || switches.analyze)
+        ? [analyze()]
+        : []),
       ...(switches.closure ? [closure()] : []),
       ...(minimized ? [terser()] : []),
     ],
@@ -82,7 +87,9 @@ const usesGlobalVars = (mod) => {
   }
 
   console.log(
-    `- Building library to ${moduleSystems.map((m) => m.toUpperCase()).join(", ")} modules.`
+    `- Building library to ${moduleSystems
+      .map((m) => m.toUpperCase())
+      .join(", ")} modules.`
   );
   console.log(
     `- While bundling will configure the following to be "external modules": ${external
