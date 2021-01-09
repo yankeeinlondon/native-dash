@@ -45,11 +45,5 @@
     "typescript": "^4.1.3",
     "uvu": "^0.5.1",
     "watchlist": "^0.2.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-merge-commit": "yarn build && yarn do validate TscFailure --error=release && yarn do validate TestingFailure --error=release && yarn do validate NpmVersion --error develop",
-      "pre-commit": "yarn do validate TscFailure --default warn --error develop && yarn do validate TestingFailure --error develop && yarn do validate NpmVersion --warn release,hotfix"
-    }
   }
 }
