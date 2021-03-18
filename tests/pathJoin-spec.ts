@@ -10,6 +10,12 @@ t("plain text joins", () => {
   assert.equal(pathJoin("test", "", "foo", "bar"), "test/foo/bar");
 });
 
+t("empty string is ignored", () => {
+  assert.equal(pathJoin("test", ""), "test");
+  assert.equal(pathJoin("test", "foo", "bar", ""), "test/foo/bar");
+  assert.equal(pathJoin("test", "", "foo", "bar", ""), "test/foo/bar");
+});
+
 t("use of forward slash", () => {
   assert.equal(pathJoin("test", "foo", "/bar"), "test/foo/bar");
   assert.equal(pathJoin("test", "/foo", "/bar"), "test/foo/bar");
