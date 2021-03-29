@@ -2,14 +2,15 @@
 
 // #region autoindexed files
 
-// index last changed at: 2nd Feb, 2021, 02:57 PM ( GMT-8 )
+// index last changed at: 3rd Mar, 2021, 10:49 AM ( GMT-7 )
 // export: named; exclusions: index, private.
-// files: IDictionary, atRandom, between, camelize, capitalize, dasherize, deserialize, first, firstKey, flatten, get, guid, hash, isLeapYear, isUuid, last, lastKey, pascalize, pathJoin, pluralize, randomString, serialize, set, snakerize, unique, uuid.
+// files: IDictionary, atRandom, base64, between, camelize, capitalize, dasherize, deserialize, first, firstKey, flatten, get, guid, hash, isLeapYear, isUuid, last, lastKey, pascalize, pathJoin, pluralize, randomString, serialize, set, snakerize, unique, uuid.
 // directories: formatting.
 
 // local file exports
 export * from "./IDictionary";
 export * from "./atRandom";
+export * from "./base64";
 export * from "./between";
 export * from "./camelize";
 export * from "./capitalize";
