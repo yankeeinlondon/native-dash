@@ -2,9 +2,9 @@
 
 // #region autoindexed files
 
-// index last changed at: 4th Apr, 2021, 10:40 AM ( GMT-7 )
+// index last changed at: 4th Apr, 2021, 12:47 PM ( GMT-7 )
 // export: named; exclusions: index, private.
-// files: IDictionary, atRandom, base64, between, camelize, capitalize, dasherize, deserialize, first, firstKey, flatten, get, guid, hash, isLeapYear, isUuid, last, lastKey, omit, pascalize, pathJoin, pluralize, randomString, serialize, set, snakerize, unique, uuid.
+// files: IDictionary, atRandom, base64, between, camelize, capitalize, dasherize, deserialize, first, firstKey, flatten, get, guid, hash, isEven, isLeapYear, isOdd, isUuid, last, lastKey, omit, pascalize, pathJoin, pluralize, randomString, serialize, set, snakerize, unique, uuid.
 // directories: formatting.
 
 // local file exports
@@ -22,7 +22,9 @@ export * from "./flatten";
 export * from "./get";
 export * from "./guid";
 export * from "./hash";
+export * from "./isEven";
 export * from "./isLeapYear";
+export * from "./isOdd";
 export * from "./isUuid";
 export * from "./last";
 export * from "./lastKey";
@@ -42,7 +44,7 @@ export * from "./formatting/index";
 
 // Note:
 // -----
-// This file was created by running: "do devops autoindex"; it assumes you have
+// This file was created by running: "dd devops autoindex"; it assumes you have
 // the 'do-devops' pkg installed as a dev dep.
 //
 // By default it assumes that exports are named exports but this can be changed by
