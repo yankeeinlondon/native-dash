@@ -23,4 +23,16 @@ t("converts nested object to kv array", () => {
   assert.equal(kv(o1), e1);
 });
 
+t("converts function based object to kv", () => {
+  const foo = (n: number) => `${n}`;
+  const bar = () => "4";
+  const o1 = { foo, bar };
+  const e1 = [
+    { key: "foo", value: foo },
+    { key: "bar", value: bar },
+  ];
+
+  assert.equal(kv(o1), e1);
+});
+
 t.run();
