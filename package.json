@@ -1,10 +1,11 @@
 {
   "name": "native-dash",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "typings": "dist/@types/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
