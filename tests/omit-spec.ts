@@ -1,7 +1,7 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { omit } from "../src/omit";
-import { Expect, Equal, ExpectExtends, NotAny, NotEqual } from "@type-challenges/utils";
+import { Expect, Equal, ExpectExtends, NotAny } from "@type-challenges/utils";
 
 const t = suite("omit");
 
