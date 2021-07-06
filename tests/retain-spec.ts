@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { retain } from "../src/retain";
+import { retain } from "../src";
 import { Expect, Equal, ExpectExtends, NotAny } from "@type-challenges/utils";
 
 const t = suite("retain");
