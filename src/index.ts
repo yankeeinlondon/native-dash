@@ -2,7 +2,7 @@
 
 // #region autoindexed files
 
-// index last changed at: 7th Jul, 2021, 08:49 AM ( GMT-7 )
+// index last changed at: 7th Jul, 2021, 03:15 PM ( GMT-7 )
 // export: named; exclusions: index, private.
 // files: IDictionary, atRandom, base64, between, camelize, capitalize, dasherize, describe, deserialize, equal, first, firstKey, flatten, get, guid, hash, isEven, isLeapYear, isOdd, isUuid, keys, kv, last, lastKey, omit, pascalize, pathJoin, pluralize, randomString, retain, serialize, set, snakerize, unique, uuid.
 // directories: formatting, types.

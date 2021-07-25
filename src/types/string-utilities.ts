@@ -45,8 +45,7 @@ type VariableDelimiter = "_" | "-";
  */
 export type Replace<S extends string, W extends string, P extends string> =
   S extends '' ? '' : W extends '' ? S :
-  S extends `${infer F}${W}${infer E}` ? `${F}${P}${E}` : S
-
+  S extends `${infer F}${W}${infer E}` ? `${F}${P}${E}` : S;
 
 /**
  * Type utility that provides the _length_ of a given string type
@@ -83,6 +82,11 @@ export type CamelCase<S extends string> = S extends `${infer B}${VariableDelimit
 export type PascalCase<S extends string> = S extends `${infer B}${VariableDelimiter}${infer A}${infer R}`
   ? `${CapFirstAlpha<B>}${CapFirstAlpha<A>}${CamelCase<R>}`
   : CapFirstAlpha<S>;
+
+export type Dasherize<S extends string> = DashUppercase<Uncapitalize<S>> extends `${infer Begin}${"_" | " "}${infer Rest}`
+  ? Dasherize<`${Lowercase<Begin>}-${Rest}`>
+  : Lowercase<DashUppercase<Uncapitalize<S>>>;
+
 
 
 // TODO: address issue with `DashUpper`: https://stackoverflow.com/questions/68522013/uppercase-to-dash-utility-works-except-when-string-starts-with
