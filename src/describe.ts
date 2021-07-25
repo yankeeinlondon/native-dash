@@ -3,7 +3,7 @@ import {
   IDataDescriptor,
   IDictionaryDescriptor,
   isNonNullObject,
-} from "./@types";
+} from "~/types";
 
 /**
  * Describes the types of the run-time data structure.

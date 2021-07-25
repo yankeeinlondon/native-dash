@@ -1,4 +1,4 @@
-import { KvDefn } from "./@types";
+import { KvDefn } from "~/types";
 import { keys } from "./keys";
 
 /**

@@ -1,15 +1,17 @@
+import { CamelCase } from "~/types";
 import { pascalize } from "./pascalize";
 
 /**
  * **Camelize**
  *
- * converts a string into _camelCase_.
+ * Converts a string into _camelCase_ string and transforms **type** of a _string literal_ to match
+ * (a _string_ type remains a _string_).
  *
- * Note: _by default it also removes surrounding white space (if it exists) but it
- * can be preserved if you change the `preserveWhitespace` flag._
+ * Note: _by default whitespace on both left and right side is removed, but you can change this
+ * behavior by setting the optional "preserveWhitespace" parameter to `false`_
  */
-export function camelize(input: string, preserveWhitespace: boolean = false): string {
-  const pascal = pascalize(input, preserveWhitespace);
+export function camelize<S extends string, T extends boolean>(input: S, preserveWhitespace?: T): CamelCase<S> {
+  const pascal = preserveWhitespace ? pascalize(input, preserveWhitespace) : pascalize(input);
   const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(
     pascal
   ) as RegExpExecArray;

@@ -1,3 +1,4 @@
+import type { PascalCase, Trim } from "~/types";
 import { capitalize } from "./capitalize";
 
 /**
@@ -9,7 +10,7 @@ import { capitalize } from "./capitalize";
  * Note: _by default it also removes surrounding white space (if it exists) but it
  * can be preserved if you change the `preserveWhitespace` flag._
  */
-export function pascalize(input: string, preserveWhitespace: boolean = false): string {
+export function pascalize<S extends string, P extends true | false>(input: S, preserveWhitespace: P = false as P) {
   const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(
     input
   ) as RegExpExecArray;
@@ -22,7 +23,9 @@ export function pascalize(input: string, preserveWhitespace: boolean = false): s
   const replaceLeadingTrash = (i: string) => i.replace(/^[-_]/s, "");
   const replaceTrailingTrash = (i: string) => i.replace(/[-_]$/s, "");
 
-  return `${preserveWhitespace ? preWhite : ""}${capitalize(
+  const pascal = `${preserveWhitespace ? preWhite : ""}${capitalize(
     replaceTrailingTrash(replaceLeadingTrash(convertInteriorToCap(startingToCap(focus))))
   )}${preserveWhitespace ? postWhite : ""}`;
+
+  return pascal as P extends true ? PascalCase<S> : Trim<PascalCase<S>>;
 }

@@ -1,4 +1,4 @@
-import { DataType } from "./@types";
+import { DataType } from "~/types";
 import { describe } from "./describe";
 import { kv } from "./kv";
 

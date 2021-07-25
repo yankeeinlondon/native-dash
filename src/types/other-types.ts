@@ -38,6 +38,8 @@ export enum DataType {
   dictionaryArray = "dictionary[]",
 }
 
+
+
 export interface IDictionaryDescriptor {
   [key: string]: DataType | IDataDescriptor;
 }
@@ -56,8 +58,3 @@ export type IDataDescriptor =
 export function isNonNullObject<T extends object>(thingy: unknown): thingy is T {
   return typeof thingy === "object" && thingy !== null;
 }
-
-export type KvDefn<T extends {} = {}, K extends keyof T = keyof T> = {
-  key: K;
-  value: T[K];
-};

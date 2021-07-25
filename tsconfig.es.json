@@ -6,5 +6,6 @@
     "module": "esnext",
     "declarationDir": "dist/@types"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["tests"]
 }
