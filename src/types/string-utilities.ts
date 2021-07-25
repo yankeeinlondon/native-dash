@@ -4,6 +4,27 @@ export type LowerAlpha = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "
 
 /** Uppercase alphabetic character */
 export type UpperAlpha = Uppercase<LowerAlpha>;
+export type Alpha = UpperAlpha | LowerAlpha;
+export type Whitespace = " " | "\n" | "\t";
+export type NonAlpha = `${Whitespace}` | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
+/**
+ * Strips the non-alpha characters that lead a string
+ */
+export type StripLeftNonAlpha<S extends string> = S extends `${infer First}${infer Rest}` ? First extends NonAlpha ? StripLeftNonAlpha<Rest> : S : never;
+
+/**
+ * identifies the leading characters which are _not_ alphabetical
+ */
+export type LeadingNonAlpha<S extends string, Acc extends string = ""> = Replace<S, StripLeftNonAlpha<S>, "">
+
+/**
+ * Capitalize the first alphabetical character in the string
+ */
+export type CapFirstAlpha<T extends string> = LeadingNonAlpha<T> extends string
+  ? `${LeadingNonAlpha<T>}${Capitalize<Replace<T, LeadingNonAlpha<T>, "">>}`
+  : Capitalize<T>;
+
 
 export type KvDefn<T extends {} = {}, K extends keyof T = keyof T> = {
   key: K;
@@ -11,7 +32,6 @@ export type KvDefn<T extends {} = {}, K extends keyof T = keyof T> = {
 };
 
 type VariableDelimiter = "_" | "-";
-type Whitespace = " " | "\n" | "\t";
 
 /**
  * Type utility which takes a string `S` and replaces the substring `W` with `P`.
@@ -57,11 +77,29 @@ export type LeftWhitespace<S extends string, Acc extends string = ""> = Replace<
 
 export type CamelCase<S extends string> = S extends `${infer B}${VariableDelimiter}${infer A}${infer R}`
   ? `${Lowercase<B>}${Capitalize<A>}${CamelCase<R>}`
-  : Lowercase<S>;
-
+  : Uncapitalize<S>;
 
 /** Converts a string literal type to a **PascalCase** representation */
 export type PascalCase<S extends string> = S extends `${infer B}${VariableDelimiter}${infer A}${infer R}`
-  ? `${Capitalize<B>}${Capitalize<A>}${CamelCase<R>}`
-  : Lowercase<S>;
+  ? `${CapFirstAlpha<B>}${CapFirstAlpha<A>}${CamelCase<R>}`
+  : CapFirstAlpha<S>;
+
+
+// TODO: address issue with `DashUpper`: https://stackoverflow.com/questions/68522013/uppercase-to-dash-utility-works-except-when-string-starts-with
+
+/**
+ * Converts uppercase characters to a dash and then the lowercase equivalent
+ * ```ts
+ * // "one-two-three"
+ * type T = DashUppercase<"oneTwoThree">;
+ * ```
+ * 
+ * _Intended to be used as a lower level utility; prefer `Dasherize<T>` for more full-fledged
+ * dash solution_.
+ */
+export type DashUppercase<S extends string> = S extends `${infer START}${UpperAlpha}${infer REST}`
+  ? StringLength<START> extends 0
+  ? DashUppercase<`${Uncapitalize<S>}`>
+  : DashUppercase<`${START}-${Uncapitalize<Replace<S, START, "">>}`>
+  : S;
 

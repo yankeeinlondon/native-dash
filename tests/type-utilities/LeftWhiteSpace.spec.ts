@@ -2,7 +2,7 @@ import { Equal, Expect } from "@type-challenges/utils";
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 
-import { LeftWhitespace, Replace } from "../../src/types/other-types";
+import { LeftWhitespace } from "~/types";
 
 const t = suite("LeftWhiteSpace<T> type utility");
 

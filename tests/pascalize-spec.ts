@@ -67,17 +67,27 @@ t(`Using "string literal", type is modified appropriately`, () => {
   const snake = "one_two_three";
   const pascal = "OneTwoThree";
   const white = "  one-two-three  ";
+  const white2 = "\n  one-two-three  \t";
+
   const aDash = pascalize(dash);
   const aSnake = pascalize(snake);
   const aPascal = pascalize(pascal);
+
   const aWhiteTrimmed = pascalize(white);
-  const aWhite = pascalize(white, true);
+  const aWhitePreserved = pascalize(white, true);
+
+  const aWhiteTrimmed2 = pascalize(white2, false);
+  const aWhite2Preserved = pascalize(white2, true);
+
 
   type ADash = typeof aDash;
   type ASnake = typeof aSnake;
   type APascal = typeof aPascal;
   type AWhiteTrimmed = typeof aWhiteTrimmed;
-  type AWhite = typeof aWhite;
+  type AWhitePreserved = typeof aWhitePreserved;
+
+  type AWhiteTrimmed2 = typeof aWhiteTrimmed2;
+  type AWhitePreserved2 = typeof aWhite2Preserved;
 
   type cases = [
     // All non-whitespaced versions of a string are converted to correct string literal
@@ -87,11 +97,13 @@ t(`Using "string literal", type is modified appropriately`, () => {
     Expect<Equal<APascal, "OneTwoThree">>,
     // with a whitespaced input, the default is to trim it
     Expect<Equal<AWhiteTrimmed, "OneTwoThree">>,
+    Expect<Equal<AWhiteTrimmed2, "OneTwoThree">>,
     // but whitespace can be preserved too
-    Expect<Equal<AWhite, "  OneTwoThree  ">>,
+    Expect<Equal<AWhitePreserved, "  OneTwoThree  ">>,
+    Expect<Equal<AWhitePreserved2, "\n  OneTwoThree  \t">>,
   ];
 
-  const c: cases = [true, true, true, true, true];
+  const c: cases = [true, true, true, true, true, true, true];
   assert.equal(c, c);
 });
 

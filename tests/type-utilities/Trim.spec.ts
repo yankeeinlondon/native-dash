@@ -2,7 +2,7 @@ import { Equal, Expect } from "@type-challenges/utils";
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 
-import { Trim } from "../../src/types/other-types";
+import { Trim } from "~/types";
 
 const t = suite("Trim<T> type utility");
 

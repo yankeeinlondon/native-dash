@@ -30,8 +30,17 @@ t("CamelCase<T> transform snake_case type", () => {
   assert.equal(c, c);
 });
 
-t("CamelCase<T> transforms camelCase type", () => {
+t("CamelCase<T> transforms PascalCase type", () => {
+  type After = CamelCase<Capitalize<TARGET>>;
 
+  type cases = [
+    Expect<Equal<After, TARGET>>
+  ];
+  const c: cases = [true];
+  assert.equal(c, c);
+});
+
+t("CamelCase<T> transforms camelCase type", () => {
   type After = CamelCase<TARGET>;
 
   type cases = [
