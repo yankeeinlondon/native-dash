@@ -1,4 +1,4 @@
-import { CamelCase, Trim } from "~/types";
+import { CamelCase, LeftWhitespace, RightWhitespace } from "inferred-types";
 import { pascalize } from "./pascalize";
 
 /**
@@ -20,5 +20,7 @@ export function camelize<S extends string, P extends boolean | undefined = undef
     focus.replace(/^.*?([0-9]*?[a-z|A-Z]{1})/s, (_, p1) => p1.toLowerCase()) +
     (preserveWhitespace ? postWhite : "");
 
-  return camel as string extends S ? string : true extends P ? CamelCase<S> : CamelCase<Trim<S>>;
+  return camel as true extends P
+    ? `${LeftWhitespace<S>}${CamelCase<S>}${RightWhitespace<S>}`
+    : CamelCase<S>;;
 }

@@ -1,4 +1,4 @@
-import type { PascalCase, Trim } from "~/types";
+import { LeftWhitespace, PascalCase, RightWhitespace } from "inferred-types";
 import { capitalize } from "./capitalize";
 
 /**
@@ -27,6 +27,8 @@ export function pascalize<S extends string, P extends boolean | undefined = unde
     replaceTrailingTrash(replaceLeadingTrash(convertInteriorToCap(startingToCap(focus))))
   )}${preserveWhitespace ? postWhite : ""}`;
 
-  return pascal as string extends S ? string : true extends P ? PascalCase<S> : PascalCase<Trim<S>>;
+  return pascal as true extends P
+    ? `${LeftWhitespace<S>}${PascalCase<S>}${RightWhitespace<S>}`
+    : PascalCase<S>;
 }
 

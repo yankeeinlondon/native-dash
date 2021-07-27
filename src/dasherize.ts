@@ -1,4 +1,4 @@
-import { Dasherize, Trim } from "./types";
+import type { Dasherize, LeftWhitespace, RightWhitespace } from "inferred-types";
 
 /**
  * Produces a _dasherized_ version of a passed in string by:
@@ -25,5 +25,7 @@ export function dasherize<S extends string, P extends boolean | undefined = unde
     replaceTrailingDash(
       replaceLeadingDash(removeDupDashes(replaceWhitespace(replaceUppercase(focus))))
     )
-  )}${postWhite}` as string extends S ? string : true extends P ? Dasherize<S> : Dasherize<Trim<S>>;
+  )}${postWhite}` as true extends P
+    ? `${LeftWhitespace<S>}${Dasherize<S>}${RightWhitespace<S>}`
+    : Dasherize<S>;
 }

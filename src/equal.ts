@@ -1,6 +1,6 @@
-import { DataType } from "~/types";
-import { describe } from "./describe";
-import { kv } from "./kv";
+import { DataType } from "../src/types";
+import { dictToKv } from "inferred-types";
+import { IDictionary } from ".";
 
 /** simple type of a variable */
 function type(v: unknown) {
@@ -34,8 +34,8 @@ export function equal(a: unknown, b: unknown, depth: number = 1): boolean {
       }
       return (a as unknown[]).every((v, idx) => equal(v, (b as unknown[])[idx]));
     case "object":
-      const ka = kv(a as Record<string, any>);
-      const kb = kv(b as Record<string, any>);
+      const ka = dictToKv(a as IDictionary);
+      const kb = dictToKv(b as IDictionary);
       if (ka.length !== kb.length) {
         return false;
       }

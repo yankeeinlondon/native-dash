@@ -62,7 +62,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
   const aWhiteHybrid = dasherize(whiteHybrid, true);
 
   // target type
-  type TARGET = "oneTwoThree";
+  type TARGET = "one-two-three";
   // types of transformed strings
   type ADash = typeof aDash;
   type ASnake = typeof aSnake;
@@ -84,8 +84,8 @@ t(`Using "string literal", type is modified appropriately`, () => {
     Expect<Equal<AWhiteTrimmed, TARGET>>,
     Expect<Equal<AWhiteHybridTrimmed, TARGET>>,
     // but whitespace can be preserved too
-    Expect<Equal<AWhite, "  oneTwoThree  ">>,
-    Expect<Equal<AWhiteHybrid, "\n  oneTwoThree \t">>,
+    Expect<Equal<AWhite, "  one-two-three  ">>,
+    Expect<Equal<AWhiteHybrid, "\n  one-two-three \t">>,
   ];
 
   const c: cases = [true, true, true, true, true, true, true, true];

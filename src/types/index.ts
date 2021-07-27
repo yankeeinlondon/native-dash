@@ -1,13 +1,12 @@
 // #autoindex
 // #region autoindexed files
 
-// index last changed at: 7th Jul, 2021, 01:02 PM ( GMT-7 )
+// index last changed at: 7th Jul, 2021, 02:17 PM ( GMT-7 )
 // export: named; exclusions: index, private.
-// files: other-types, string-utilities.
+// files: other-types.
 
 // local file exports
 export * from "./other-types";
-export * from "./string-utilities";
 
 // Note:
 // -----
