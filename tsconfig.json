@@ -9,8 +9,19 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "sourceMap": false,
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+
+    "plugins": [
+      // Transform paths in output .js files
+      { "transform": "typescript-transform-paths" },
+
+      // Transform paths for declarations files
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   },
-  "files": ["global.d.ts"],
-  "include": ["src", "global.d.ts", "tests"]
+  "include": ["src", "tests"]
 }

@@ -1,3 +1,5 @@
+import type { Dasherize, LeftWhitespace, RightWhitespace } from "inferred-types";
+
 /**
  * Produces a _dasherized_ version of a passed in string by:
  *
@@ -9,7 +11,7 @@
  *
  * Note: does not impact exterior whitespace, e.g., `  myDash  ` is translated to `  my-dash  ` and leading and closing white space is not transformed.
  */
-export function dasherize(input: string) {
+export function dasherize<S extends string, P extends boolean | undefined = undefined>(input: S, preserveWhitespace?: P) {
   const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(input) as RegExpExecArray;
 
   const replaceWhitespace = (i: string) => i.replace(/\s/gs, "-");
@@ -23,5 +25,7 @@ export function dasherize(input: string) {
     replaceTrailingDash(
       replaceLeadingDash(removeDupDashes(replaceWhitespace(replaceUppercase(focus))))
     )
-  )}${postWhite}`;
+  )}${postWhite}` as true extends P
+    ? `${LeftWhitespace<S>}${Dasherize<S>}${RightWhitespace<S>}`
+    : Dasherize<S>;
 }

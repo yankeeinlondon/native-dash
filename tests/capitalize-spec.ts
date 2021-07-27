@@ -1,6 +1,7 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { capitalize } from "../src/capitalize";
+import { Equal, Expect } from "@type-challenges/utils";
 
 const t = suite("capitalize() function");
 
@@ -18,6 +19,26 @@ t(
 
 t("empty string creates no change", () => {
   assert.equal(capitalize(""), "");
+});
+
+t(`typing of a "string" is retained when passed through capitalize()`, () => {
+  const before: string = "bob";
+  const after = capitalize(before);
+  type cases = [
+    Expect<Equal<typeof after, string>>
+  ];
+  const c: cases = [true];
+  assert.equal(c, c);
+});
+
+t(`typing of a string literal is modified appropriatly when passed through capitalize()`, () => {
+  const before = "bob";
+  const after = capitalize(before);
+  type cases = [
+    Expect<Equal<typeof after, "Bob">>
+  ];
+  const c: cases = [true];
+  assert.equal(c, c);
 });
 
 t.run();
