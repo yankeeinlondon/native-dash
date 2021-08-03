@@ -1,10 +1,14 @@
 import { IDictionary } from "./IDictionary";
+import { keys } from "./keys";
+
+export type PluralExceptionTuple = [pattern: RegExp, plural: string];
 
 export type IPluralizeRuleEngine = (
   input: string,
   rule: RegExp,
   exceptions: string[]
 ) => string;
+
 export type IPluralizeRule = [
   pattern: RegExp,
   fn: IPluralizeRuleEngine,
@@ -24,14 +28,14 @@ export interface IPluralizeOptions {
    * own dictionary mapping:
    *
    * ```ts
-   * const explictPluralizations = {
-   *    foo: 'foey',
-   *    bar: 'barred',
-   * }
+   * const explictPluralizations = [
+   *    /^foo$/: 'foey',
+   *    /(.*)bar$/: '$1barred',
+   * ]
    * const plural = pluralize(something, { explictPluralizations });
    * ```
    */
-  explictPluralizations?: IDictionary<string>;
+  bespokeExceptions?: PluralExceptionTuple[];
 
   additionalRules?: IPluralizeRule[];
 
@@ -45,16 +49,16 @@ export interface IPluralizeOptions {
 /** Rules were derived from [Grammarly](https://www.grammarly.com/blog/plural-nouns/) */
 const defaultRules: IPluralizeRule[] = [
   // ending in "us"
-  [/(us)$/, (i) => `${i.replace(/us$/, "")}i`, ["bus", "us"]],
+  [/(us)$/i, (i) => `${i.replace(/us$/, "")}i`, ["bus", "us"]],
   // "is" to "es"
-  [/(is)$/, (i, r) => `${i.replace(r, "")}es`],
+  [/(is)$/i, (i, r) => `${i.replace(r, "")}es`],
   // singular noun endings that have "es" added
   [/(s|sh|ch|x|z|o)$/, (i) => `${i}es`],
   // ending in "f" or "fe"
-  [/fe{0,1}$/, (i, r) => `${i.replace(r, "")}ves`],
+  [/fe{0,1}$/i, (i, r) => `${i.replace(r, "")}ves`],
   // end in Y, with consonant before it
   [
-    /[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|z|y]y$/,
+    /[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|z|y]y$/i,
     (i) => `${i.slice(0, i.length - 1)}ies`,
   ],
 ];
@@ -78,27 +82,33 @@ export function pluralize(input: string, options: IPluralizeOptions = {}) {
     throw new Error("Attempt to pluralize an empty string");
   }
 
-  const defaultExceptions = {
-    photo: "photos",
-    piano: "pianos",
-    halo: "halos",
-    foot: "feet",
-    man: "men",
-    woman: "women",
-    person: "people",
-    mouse: "mice",
-    series: "series",
-    sheep: "sheep",
-    deer: "deer",
-  };
+  const defaultExceptions: PluralExceptionTuple[] = [
+    [/(.*)(photo)$/i, "$1$2s"],
+    [/(.*)(piano)$/i, "$1$2s"],
+    [/(.*)(halo)$/i, "$1$2s"],
+    [/(.*)(foot)$/i, "$1feet"],
+    [/(.*)(man)$/i, "$1men"],
+    [/(.*)(person)$/i, "$1person"],
+    [/(.*)(mouse)$/i, "$1mice"],
+    [/(.*)(series)$/i, "$1series"],
+    [/(.*)(sheep)$/i, "$1sheep"],
+    [/(.*)(deer)$/i, "$1deer"],
+    [/^(fun)$/i, "$1"]
+  ];
 
-  const exceptions = {
+  const exceptions = [
     ...defaultExceptions,
-    ...(options.explictPluralizations ? options.explictPluralizations : {}),
-  };
+    ...(options.bespokeExceptions ? options.bespokeExceptions : []),
+  ].filter(e => {
+    const [re, _] = e;
+    return re.test(input.toLowerCase());
+  });
 
-  if (Object.keys(exceptions).includes(input)) {
-    return exceptions[input as keyof typeof exceptions];
+
+  if (exceptions.length > 0) {
+    const [re, result] = exceptions[0];
+
+    return input.replace(re, result);
   }
 
   const pRules =
@@ -109,7 +119,7 @@ export function pluralize(input: string, options: IPluralizeOptions = {}) {
   let index = 0;
 
   const rules = pRules.filter(
-    (r) => r[Rule.regex].test(input) && !(r[Rule.exceptions] || []).includes(input)
+    (r) => r[Rule.regex].test(input.toLowerCase()) && !(r[Rule.exceptions] || []).includes(input)
   );
 
   if (rules.length > 0) {
