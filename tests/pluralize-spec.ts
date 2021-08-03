@@ -84,7 +84,8 @@ t("adding text before regex pattern still results in correct pluralization", () 
     ["MYmouse", "MYmice"],
     ["MYseries", "MYseries"],
     ["MYsheep", "MYsheep"],
-    ["woman", "women"]
+    ["woman", "women"],
+    ["DeeperPerson", "DeeperPeople"]
   ];
 
   tests.forEach(([singular, plural]) =>
