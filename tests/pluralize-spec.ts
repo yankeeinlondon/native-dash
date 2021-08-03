@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { IExplicitPluralization, pluralize } from "../src";
+import { IExplicitPluralization, PluralExceptionTuple, pluralize } from "../src";
 
 const t = suite("pluralize function");
 
@@ -42,38 +42,82 @@ t("ending in 'is' converted to 'es'", () => {
   assert.equal(pluralize("ellipsis"), "ellipses");
 });
 
-const defaultExceptions = {
-  photo: "photos",
-  piano: "pianos",
-  halo: "halos",
-  foot: "feet",
-  man: "men",
-  woman: "women",
-  person: "people",
-  mouse: "mice",
-  series: "series",
-  sheep: "sheep",
-  deer: "deer",
-};
+const defaultExceptions: PluralExceptionTuple[] = [
+  [/(.*)photo$/s, "$1photos"],
+  [/(.*)piano$/s, "$1pianos"],
+  [/(.*)halo$/s, "$1halos"],
+  [/(.*)foot$/s, "$1feet"],
+  [/(.*)man$/s, "$1man"],
+  [/(.*)person$/s, "person"],
+  [/(.*)mouse$/s, "mice"],
+  [/(.*)series$/s, "$1series"],
+  [/(.*)sheep$/s, "$1sheep"],
+  [/(.*)deer$/s, "$1deer"],
+];
 
-t("exceptions are processed correctly", () => {
-  Object.keys(defaultExceptions).forEach((key) =>
-    assert.equal(pluralize(key), defaultExceptions[key as keyof typeof defaultExceptions])
+t("happy-path exceptions are processed correctly", () => {
+  const tests = [
+    ["photo", "photos"],
+    ["piano", "pianos"],
+    ["halo", "halos"],
+    ["foot", "feet"],
+    ["man", "men"],
+    ["person", "person"],
+    ["mouse", "mice"],
+    ["series", "series"],
+    ["sheep", "sheep"]
+  ];
+
+  tests.forEach(([singular, plural]) =>
+    assert.equal(pluralize(singular), plural)
+  );
+});
+
+t("adding text before regex pattern still results in correct pluralization", () => {
+  const tests = [
+    ["MYphoto", "MYphotos"],
+    ["MYpiano", "MYpianos"],
+    ["MYhalo", "MYhalos"],
+    ["MYfoot", "MYfeet"],
+    ["MYman", "MYmen"],
+    ["MYperson", "MYperson"],
+    ["MYmouse", "MYmice"],
+    ["MYseries", "MYseries"],
+    ["MYsheep", "MYsheep"],
+    ["woman", "women"]
+  ];
+
+  tests.forEach(([singular, plural]) =>
+    assert.equal(pluralize(singular), plural)
+  );
+});
+
+t("Uppercasing anywhere has no effect on matching; result will maintain caps where it can but use lowercase otherwise", () => {
+  const tests = [
+    // NORMAL RULES
+    ["CAR", "CARs"],
+    ["PUsh", "PUshes"],
+    ["LIFE", "LIves"],
+    // EXCEPTION CASES
+    ["fUn", "fUn"],
+    ["phOTo", "phOTos"],
+    ["piANo", "piANos"],
+    ["HALO", "HALOs"],
+  ];
+
+  tests.forEach(([singular, plural]) =>
+    assert.equal(pluralize(singular), plural)
   );
 });
 
 t("additional exceptions are used without interfering with default exceptions", () => {
-  const explictPluralizations = { foo: "foey", bar: "barred" };
-  // existing rules are not interfered with
-  Object.keys(defaultExceptions).forEach((key) =>
-    assert.equal(
-      pluralize(key, { explictPluralizations }),
-      defaultExceptions[key as keyof typeof defaultExceptions]
-    )
-  );
+  const bespokeExceptions: PluralExceptionTuple[] = [
+    [/^foo$/i, "foey"],
+    [/^bar$/i, "barred"]
+  ];
   // explicit mappings passed in work
-  assert.equal(pluralize("foo", { explictPluralizations }), "foey");
-  assert.equal(pluralize("bar", { explictPluralizations }), "barred");
+  assert.equal(pluralize("foo", { bespokeExceptions }), "foey");
+  assert.equal(pluralize("bar", { bespokeExceptions }), "barred");
 });
 
 t.run();
