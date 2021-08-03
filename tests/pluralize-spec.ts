@@ -62,7 +62,7 @@ t("happy-path exceptions are processed correctly", () => {
     ["halo", "halos"],
     ["foot", "feet"],
     ["man", "men"],
-    ["person", "person"],
+    ["person", "people"],
     ["mouse", "mice"],
     ["series", "series"],
     ["sheep", "sheep"]
@@ -80,7 +80,7 @@ t("adding text before regex pattern still results in correct pluralization", () 
     ["MYhalo", "MYhalos"],
     ["MYfoot", "MYfeet"],
     ["MYman", "MYmen"],
-    ["MYperson", "MYperson"],
+    ["MYperson", "MYpeople"],
     ["MYmouse", "MYmice"],
     ["MYseries", "MYseries"],
     ["MYsheep", "MYsheep"],
