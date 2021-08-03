@@ -88,7 +88,7 @@ export function pluralize(input: string, options: IPluralizeOptions = {}) {
     [/(.*)(halo)$/i, "$1$2s"],
     [/(.*)(foot)$/i, "$1feet"],
     [/(.*)(man)$/i, "$1men"],
-    [/(.*)(person)$/i, "$1person"],
+    [/(.*)(person)$/i, "$1people"],
     [/(.*)(mouse)$/i, "$1mice"],
     [/(.*)(series)$/i, "$1series"],
     [/(.*)(sheep)$/i, "$1sheep"],
