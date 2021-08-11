@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "license": "MIT",
   "author": "Ken Snyder <ken@ken.net>",
