@@ -53,5 +53,4 @@ t("type system is reduced to stated props", () => {
   assert.equal(results2, results2);
 });
 
-
 t.run();
