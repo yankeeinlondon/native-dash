@@ -44,7 +44,6 @@ const moduleConfig = (moduleSystem, minimized) => {
       commonjs(),
       resolve(),
       typescript({
-        typescript: require("ttypescript"),
         tsconfig: "tsconfig.es.json",
         target: minimized ? "es2015" : "esnext",
         outDir: `dist/${moduleSystem}`,

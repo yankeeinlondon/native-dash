@@ -2,9 +2,9 @@
 
 // #region autoindexed files
 
-// index last changed at: 10th Oct, 2021, 06:18 PM ( GMT-7 )
+// index last changed at: 10th Oct, 2021, 01:47 PM ( GMT-7 )
 // export: named; exclusions: index, private.
-// files: IDictionary, atRandom, base64, between, camelize, capitalize, dasherize, describe, deserialize, equal, first, firstKey, flatten, get, guid, hash, initials, isEven, isLeapYear, isOdd, isUuid, keys, last, lastKey, omit, pascalize, pathJoin, pluralize, randomString, retain, serialize, set, snakerize, unique, uuid.
+// files: IDictionary, atRandom, base64, between, camelize, capitalize, createLookup, dasherize, describe, deserialize, equal, first, firstKey, flatten, get, guid, hash, initials, isEven, isLeapYear, isOdd, isUuid, keys, last, lastKey, omit, pascalize, pathJoin, pluralize, randomString, retain, serialize, set, snakerize, unique, uuid.
 // directories: formatting, types.
 
 // local file exports
@@ -14,6 +14,7 @@ export * from "./base64";
 export * from "./between";
 export * from "./camelize";
 export * from "./capitalize";
+export * from "./createLookup";
 export * from "./dasherize";
 export * from "./describe";
 export * from "./deserialize";
@@ -51,7 +52,7 @@ export * from "./types/index";
 // Note:
 // -----
 // This file was created by running: "dd devops autoindex"; it assumes you have
-// the 'do-devops' pkg (that's "dd" on npm) installed as a dev dep.
+// the 'do-devops' pkg installed as a dev dep.
 //
 // By default it assumes that exports are named exports but this can be changed by
 // adding a modifier to the '// #autoindex' syntax:
@@ -70,12 +71,7 @@ export * from "./types/index";
 //
 //    - autoindex:named, exclude: foo,bar,baz
 //
-// Inversely, if you state a file to be an "orphan" then autoindex files
-// below this file will not reference this autoindex file:
-//
-//    - autoindex:named, orphan
-// 
-// Also be aware that all of your content outside the "// #region" section in this file
+// Also be aware that all of your content outside the defined region in this file
 // will be preserved in situations where you need to do something paricularly awesome.
 // Keep on being awesome.
 
