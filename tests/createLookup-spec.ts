@@ -18,6 +18,11 @@ const c3 = createLookup<string, RGB>({
   blue: [137, 207, 240],
 });
 
+const c4 = createLookup<boolean, Color>({
+  true: "red",
+  false: "blue",
+});
+
 t("createLookup() returns correctly typed lookup function", () => {
   type Color = "red" | "blue";
   type RGB = [number, number, number];
@@ -26,7 +31,7 @@ t("createLookup() returns correctly typed lookup function", () => {
   type Params = Parameters<typeof color>[0];
   type Return = ReturnType<typeof color>;
 
-  type cases = [Expect<Equal<Color, Params>>, Expect<Equal<Return, RGB>>];
+  type cases = [Expect<Equal<boolean | Color, Params>>, Expect<Equal<Return, RGB>>];
   const c: cases = [true, true];
   assert.equal(c, c);
 });
@@ -48,9 +53,14 @@ t(
       assert.equal(c3("green"), [128, 128, 128]);
       throw new Error("should have already failed due to unknown lookup value");
     } catch (err) {
-      assert.match(err.message, "Failure in lookup");
+      assert.match((err as Error).message, "Failure in lookup");
     }
   }
 );
+
+t("boolean values are converted to string keys in map", () => {
+  assert.equal(c4(true), "red");
+  assert.equal(c4(false), "blue");
+});
 
 t.run();
