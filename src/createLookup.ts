@@ -15,14 +15,18 @@ const defaultMiss = <V>(missed: any): V => {
  * ```
  */
 export function createLookup<
-  K extends string | number,
+  K extends string | number | boolean,
   V extends {},
   M extends (m: any) => V = (m: any) => V
->(known: Record<K, V>, miss: M = defaultMiss as M) {
+>(known: Record<Exclude<K, boolean>, V>, miss: M = defaultMiss as M) {
   /**
    * Lookup a value
    */
-  return (v: K) => {
-    return v in known ? known[v] : miss(v);
+  return (v: K | boolean) => {
+    const value = (v === true ? "true" : v === false ? "false" : v) as Exclude<
+      K,
+      boolean
+    >;
+    return (value as string | number) in known ? known[value] : miss(value);
   };
 }
