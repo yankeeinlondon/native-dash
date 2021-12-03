@@ -53,4 +53,21 @@ t("type system is reduced by stated props", () => {
   assert.equal(results2, results2);
 });
 
+t("", () => {
+  type Shape = {
+    foo: number;
+    bar: { id: number; name: "bar" };
+  } & { baz: { id: number; name: "baz" } };
+
+  const obj: Shape = {
+    foo: 45,
+    bar: { id: 1, name: "bar" },
+    baz: { id: 2, name: "baz" },
+  };
+
+  const r1 = omit(obj, "baz");
+  const excluded = ["foo", "bar"] as const;
+  const r2 = omit(obj, ...excluded);
+});
+
 t.run();
