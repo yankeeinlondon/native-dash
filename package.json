@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.21.1",
+  "version": "1.21.2",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "license": "MIT",
   "author": "Ken Snyder <ken@ken.net>",
@@ -12,32 +12,30 @@
     "dist"
   ],
   "scripts": {
-    "autoindex": "yarn do autoindex",
+    "autoindex": "npx dd autoindex",
     "build": "run-s clean autoindex build:bundle",
     "build:bundle": "npx tsup src/index.ts --dts --format='esm,cjs'",
     "clean": "rimraf dist/*",
     "test": "yarn uvu tests -r ts-node/register",
     "watch": "run-p watch:*",
-    "watch:autoindex": "yarn do autoindex -w",
-    "watch:cjs": "yarn tsc -P tsconfig.cjs.json -w",
-    "watch:es": "yarn tsc -P tsconfig.es.json -w",
-    "watch:test": "watchlist src tests -- yarn test"
+    "watch:autoindex": "npx dd autoindex --watch",
+    "watch:bundle": "npx tsup src/index.ts --dts --format='esm,cjs'"
   },
-  "dependencies": {},
   "devDependencies": {
     "@type-challenges/utils": "^0.1.1",
     "@types/node": "14",
     "@types/node-fetch": "^3.0.3",
+    "dd": "^0.16.5",
     "husky": "^7.0.4",
-    "inferred-types": "^0.18.0",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.3.0",
     "tsup": "^5.10.1",
     "typescript": "^4.4.4",
     "uvu": "^0.5.2",
     "watchlist": "^0.3.1"
   },
-  "optionalDependencies": {
-    "inferred-types": "^0.18.0"
+  "dependencies": {
+    "inferred-types": "^0.18.1"
   }
 }
