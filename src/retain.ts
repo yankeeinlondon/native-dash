@@ -1,4 +1,12 @@
-export type Include<T, U> = T extends U ? T : never;
+export type Include<T, U, L extends boolean = false> = L extends true
+  ? T extends U
+    ? U extends T
+      ? T
+      : never
+    : never
+  : T extends U
+  ? T
+  : never;
 export type Retain<T, K extends keyof T> = Pick<T, Include<keyof T, K>>;
 
 /**
