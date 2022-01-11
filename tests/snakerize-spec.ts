@@ -27,6 +27,7 @@ t("kebob-case is converted correctly", () => {
 t("spaced words are converted correctly", () => {
   assert.equal(snakerize("space case"), "space_case");
   assert.equal(snakerize("Space Case"), "space_case");
+  assert.equal(snakerize("Real Person"), "real_person");
   assert.equal(snakerize("Space case"), "space_case");
   assert.equal(snakerize(" space  case "), "space_case");
   assert.equal(snakerize(" space case ", true), " space_case ");

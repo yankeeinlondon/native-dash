@@ -4,9 +4,9 @@ specifiers:
   '@type-challenges/utils': ^0.1.1
   '@types/node': ^14.18.5
   '@types/node-fetch': ^3.0.3
-  dd: ^0.17.1
+  dd: ^0.18.0
   husky: ^7.0.4
-  inferred-types: ^0.18.3
+  inferred-types: ^0.18.4
   npm-run-all: ^4.1.5
   rimraf: ^3.0.2
   ts-node: ^10.4.0
@@ -16,13 +16,13 @@ specifiers:
   watchlist: ^0.3.1
 
 dependencies:
-  inferred-types: 0.18.3
+  inferred-types: 0.18.4
 
 devDependencies:
   '@type-challenges/utils': 0.1.1
   '@types/node': 14.18.5
   '@types/node-fetch': 3.0.3
-  dd: 0.17.1
+  dd: 0.18.0
   husky: 7.0.4
   npm-run-all: 4.1.5
   rimraf: 3.0.2
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==}
     dev: true
 
-  /aws-sdk/2.1054.0:
-    resolution: {integrity: sha512-y8OAffen0uoKSnCZp4Nb1dDsUqOOfr+m68cL1lRW8c7g1FjugH3u7CZmAnlA7PxenZUpnSeN3yBtHqIZhkMT4w==}
+  /aws-sdk/2.1055.0:
+    resolution: {integrity: sha512-99drH3mvXakw9we8Rs2cDQmi2pS7PVAC9pvTlB7lHPUwLYftMlko5cFMceZxvTHeyLkdvg98iNIHI3hbnzitoQ==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -363,7 +363,7 @@ packages:
     resolution: {integrity: sha512-+nk+Y44ZtFuKGKCgQZcdaSVxNeyHXq31jwJWJF/mAiQ6GcuRngRYawdcZaTVqEK8u0k8t0qqRRqWezEw2B+tvQ==}
     engines: {node: '>=10.0.0'}
     dependencies:
-      common-types: 1.31.0
+      common-types: 1.31.1
     dev: true
 
   /balanced-match/1.0.2:
@@ -424,13 +424,13 @@ packages:
       wcwidth: 1.0.1
     dev: true
 
-  /brilliant-errors/0.5.5:
-    resolution: {integrity: sha512-fWDrbtwyLjUbEtu8p+fQ93ulFcFWNpjpz9AbGOADDuReBRTMyx45IazzQNEidtcX9Ag8U5oscwuiO79iFVOcLw==}
+  /brilliant-errors/0.5.6:
+    resolution: {integrity: sha512-sZRUw/4yXSz03fp4R8Drb6ULf5DxbVQArFIjkDJZYTVW1WcbBXEyc9zxlSOb1NpbBrcnuDoqiglNZZ2nDdK0qw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       callsites: 3.1.0
-      common-types: 1.31.0
-      inferred-types: 0.18.3
+      common-types: 1.31.1
+      inferred-types: 0.18.4
     dev: true
 
   /buffer-crc32/0.2.13:
@@ -599,8 +599,8 @@ packages:
       simple-swizzle: 0.2.2
     dev: true
 
-  /color/4.1.0:
-    resolution: {integrity: sha512-o2rkkxyLGgYoeUy1OodXpbPAQNmlNBrirQ8ODO8QutzDiDMNdezSOZLNnusQ6pUpCQJUsaJIo9DZJKqa2HgH7A==}
+  /color/4.2.0:
+    resolution: {integrity: sha512-hHTcrbvEnGjC7WBMk6ibQWFVDgEFTVmjrz2Q5HlU6ltwxv0JJN2Z8I7uRbWeQLF04dikxs8zgyZkazRJvSMtyQ==}
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.0
@@ -640,8 +640,8 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /common-types/1.31.0:
-    resolution: {integrity: sha512-PRXlTfMecEvdx1od4GwgDfJZ0lc1IkawB/D9ql96bjaF5OM0hdlx8JkLnukP2054TQsAzdv2uawbmbRhdXn0Qw==}
+  /common-types/1.31.1:
+    resolution: {integrity: sha512-eixAd22Gmek1dgsPgyqCSjzMAlp8rpSLkb44iEMfOzR9fwGFYEkH+AWOHmwSFxWmO8MvMND/m1jpZX0Wk4+yJA==}
 
   /commondir/1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
@@ -720,13 +720,13 @@ packages:
     engines: {node: '>=0.11'}
     dev: true
 
-  /dd/0.17.1:
-    resolution: {integrity: sha512-FZQx5F2cZLDb5p/wSTY8uJfJxcsjBw5U96dCn4ZjginKThYfhD1LvmvI/rvai78K1FZNDlwL9EAUmUlJkjjrVw==}
+  /dd/0.18.0:
+    resolution: {integrity: sha512-HWQX1jq3LZGf1ggWoCTXJWupiXA3A18qba2FU/+HqY90Sn20fPGxsQ97XZ3Q8B08PjM6HZnmC8ZyU3uCKJs1WA==}
     hasBin: true
     dependencies:
       ast-types: 0.14.2
       async-shelljs: 0.1.4
-      aws-sdk: 2.1054.0
+      aws-sdk: 2.1055.0
       aws-ssm: 0.4.0
       bestzip: 2.2.0
       callsites: 3.1.0
@@ -734,7 +734,7 @@ packages:
       chokidar: 3.5.2
       command-line-args: 5.2.0
       command-line-usage: 6.1.1
-      common-types: 1.31.0
+      common-types: 1.31.1
       date-fns: 2.28.0
       deepmerge: 4.2.2
       destr: 1.1.0
@@ -742,12 +742,12 @@ packages:
       exiftool-vendored: 15.9.2
       find-up: 5.0.0
       globby: 11.1.0
-      inferred-types: 0.18.3
+      inferred-types: 0.18.4
       inquirer: 8.2.0
       js-yaml: 4.1.0
       madge: 5.0.1
       matcher: 4.0.0
-      native-dash: 1.21.3
+      native-dash: 1.21.4
       play-sound: 1.1.5
       recast: 0.20.5
       sharp: 0.29.3
@@ -1630,10 +1630,10 @@ packages:
     resolution: {integrity: sha1-8w9xbI4r00bHtn0985FVZqfAVgc=}
     dev: true
 
-  /inferred-types/0.18.3:
-    resolution: {integrity: sha512-iCyakuP+PoNQ9fU/LBe8X38Ojq80sYO2bg5fQJqTCvtqA2ay1DlGH3CfSQYbwkYQzxEkILERgOZJIGQ/LevMog==}
+  /inferred-types/0.18.4:
+    resolution: {integrity: sha512-rdI+5Zuxb7eYKAkU6PxoxqW0TzdFxodMHaUNAmuaxaCg2ngZTKwBTN5LqimfxNyRCOZWyv0DGd7DzNE9mZXVQA==}
     dependencies:
-      common-types: 1.31.0
+      common-types: 1.31.1
 
   /inflight/1.0.6:
     resolution: {integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=}
@@ -2118,8 +2118,8 @@ packages:
       thenify-all: 1.6.0
     dev: true
 
-  /nanoid/3.1.30:
-    resolution: {integrity: sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==}
+  /nanoid/3.1.31:
+    resolution: {integrity: sha512-ZivnJm0o9bb13p2Ot5CpgC2rQdzB9Uxm/mFZweqm5eMViqOJe3PV6LU2E30SiLgheesmcPrjquqraoolONSA0A==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
@@ -2128,10 +2128,10 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: true
 
-  /native-dash/1.21.3:
-    resolution: {integrity: sha512-GWdpGoNjlRjdQhykWXsWKK5Gc7eXPg3P1Ly7TF3O92uK3iZYzNA4hbpHn1vsyz4DZcXTy5K1LGH42Vi6TcvJMQ==}
+  /native-dash/1.21.4:
+    resolution: {integrity: sha512-aeJ8/kyJfQ9G90Su4Ajpv6uqOib2KTXK6GgsuzWnwUjkPP1zFzG4uHU6zmOAP1y0yGCtxAjNwIuBtT7tuFeL5g==}
     dependencies:
-      inferred-types: 0.18.3
+      inferred-types: 0.18.4
     dev: true
 
   /nice-try/1.0.5:
@@ -2446,7 +2446,7 @@ packages:
     resolution: {integrity: sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.1.30
+      nanoid: 3.1.31
       picocolors: 1.0.0
       source-map-js: 1.0.1
     dev: true
@@ -2765,7 +2765,7 @@ packages:
     engines: {node: '>=12.13.0'}
     requiresBuild: true
     dependencies:
-      color: 4.1.0
+      color: 4.2.0
       detect-libc: 1.0.3
       node-addon-api: 4.2.0
       prebuild-install: 7.0.0
@@ -3248,8 +3248,8 @@ packages:
     resolution: {integrity: sha512-+3QiT16YM1T/jRlwgk7mZ8dCRlM1vQxa/VTpujnV2UGuBg9Db0k98C3C3Jd/zJghzs0El4cnRa0hI0IQHdlR4Q==}
     engines: {node: '>=10.0.0'}
     dependencies:
-      brilliant-errors: 0.5.5
-      common-types: 1.31.0
+      brilliant-errors: 0.5.6
+      common-types: 1.31.1
     dev: true
 
   /typescript/3.9.10:
