@@ -23,5 +23,5 @@ export function snakerize(input: string, preserveWhitespace: boolean = false): s
       injectUnderscoreBeforeCaps(convertDashes(convertInteriorSpace(focus)))
     ).toLowerCase() +
     (preserveWhitespace ? postWhite : "")
-  );
+  ).replace(/__/g, "_");
 }

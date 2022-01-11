@@ -24,4 +24,12 @@ t("kebob-case is converted correctly", () => {
   assert.equal(snakerize(" kebob-case ", true), " kebob_case ");
 });
 
+t("spaced words are converted correctly", () => {
+  assert.equal(snakerize("space case"), "space_case");
+  assert.equal(snakerize("Space Case"), "space_case");
+  assert.equal(snakerize("Space case"), "space_case");
+  assert.equal(snakerize(" space  case "), "space_case");
+  assert.equal(snakerize(" space case ", true), " space_case ");
+});
+
 t.run();
