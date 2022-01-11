@@ -1,8 +1,8 @@
 // #autoindex
 
 // #region autoindexed files
-// index last changed at: 12th Dec, 2021, 08:48 AM ( GMT-8 )
-// hash-code: 4076958561
+// index last changed at: 1st Jan, 2022, 12:55 AM ( GMT-8 )
+// hash-code: f3017361
 
 // file exports
 export * from "./color";
