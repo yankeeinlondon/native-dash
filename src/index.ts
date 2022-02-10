@@ -1,8 +1,8 @@
 //#autoindex
 
 // #region autoindexed files
-// index last changed at: 1st Jan, 2022, 12:55 AM ( GMT-8 )
-// hash-code: 15dbc969
+// index last changed at: 2nd Feb, 2022, 04:05 PM ( GMT-8 )
+// hash-code: fa632c58
 
 // file exports
 export * from "./IDictionary";
@@ -20,6 +20,7 @@ export * from "./first";
 export * from "./firstKey";
 export * from "./flatten";
 export * from "./get";
+export * from "./groupBy";
 export * from "./guid";
 export * from "./hash";
 export * from "./initials";
