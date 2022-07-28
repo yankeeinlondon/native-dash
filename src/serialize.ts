@@ -1,6 +1,3 @@
-// import type { Request} from  'node-fetch'
-// export type url = [url: string, fetch: typeof fetch];
-// export type filename = string;
 
 /**
  * converts an array of _things_ into a `\n` delimited
