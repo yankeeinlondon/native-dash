@@ -40,7 +40,7 @@ t("Using string type, the types remain as string", () => {
   ];
   const c: cases = [true];
   assert.equal(c, c);
-})
+});
 
 t(`Using "string literal", type is modified appropriately`, () => {
   const dash = "one-two-three";

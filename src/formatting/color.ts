@@ -1,4 +1,4 @@
-import { ColorConfigurator, ColorFormatter } from "./fluent-types";
+import { ColorConfigurator } from "./fluent-types";
 import { paint } from "./private/index";
 
 /**

@@ -6,7 +6,7 @@ const t = suite("randomString() function");
 
 t("twenty rapidly requested IDs are unique", () => {
   const testIds: string[] = [];
-  for (const [i] of Array(20).entries()) {
+  for (const [_i] of Array(20).entries()) {
     testIds.push(randomString());
   }
   const unique = new Set<string>(testIds);

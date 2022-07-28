@@ -65,9 +65,9 @@ t("", () => {
     baz: { id: 2, name: "baz" },
   };
 
-  const r1 = omit(obj, "baz");
+  omit(obj, "baz");
   const excluded = ["foo", "bar"] as const;
-  const r2 = omit(obj, ...excluded);
+  omit(obj, ...excluded);
 });
 
 t.run();

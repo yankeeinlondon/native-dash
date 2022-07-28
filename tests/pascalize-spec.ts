@@ -1,4 +1,4 @@
-import { Equal, Expect, ExpectExtends } from "@type-challenges/utils";
+import { Equal, Expect } from "@type-challenges/utils";
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { pascalize } from "../src/pascalize";
@@ -27,10 +27,7 @@ t("PascalCase is converted correctly", () => {
 });
 
 t("Bastar*d Case is converted correctly", () => {
-  assert.equal(
-    pascalize(" camelCase is not PascalCase ", true),
-    " CamelCaseIsNotPascalCase "
-  );
+  assert.equal(pascalize(" camelCase is not PascalCase ", true), " CamelCaseIsNotPascalCase ");
   assert.equal(pascalize(" --fooBar--batShit--Crazy-", true), " FooBarBatShitCrazy");
   assert.equal(pascalize(" --fooBar--batShit--Crazy-", false), "FooBarBatShitCrazy");
 });
@@ -55,7 +52,7 @@ t(`Using wide "string" type, type is preserved`, () => {
     Expect<Equal<ADash, string>>,
     Expect<Equal<ASnake, string>>,
     Expect<Equal<AWhiteTrimmed, string>>,
-    Expect<Equal<AWhite, string>>,
+    Expect<Equal<AWhite, string>>
   ];
 
   const c: cases = [true, true, true, true];
@@ -79,7 +76,6 @@ t(`Using "string literal", type is modified appropriately`, () => {
   const aWhiteTrimmed2 = pascalize(white2, false);
   const aWhite2Preserved = pascalize(white2, true);
 
-
   type ADash = typeof aDash;
   type ASnake = typeof aSnake;
   type APascal = typeof aPascal;
@@ -100,7 +96,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
     Expect<Equal<AWhiteTrimmed2, "OneTwoThree">>,
     // but whitespace can be preserved too
     Expect<Equal<AWhitePreserved, "  OneTwoThree  ">>,
-    Expect<Equal<AWhitePreserved2, "\n  OneTwoThree  \t">>,
+    Expect<Equal<AWhitePreserved2, "\n  OneTwoThree  \t">>
   ];
 
   const c: cases = [true, true, true, true, true, true, true];

@@ -9,7 +9,7 @@ type Color = "red" | "blue";
 type RGB = [number, number, number];
 
 const color = createLookup<Color, RGB>({ red: [255, 0, 0], blue: [137, 207, 240] });
-const c2 = createLookup<string, RGB>({ red: [255, 0, 0], blue: [137, 207, 240] }, (v) => [
+const c2 = createLookup<string, RGB>({ red: [255, 0, 0], blue: [137, 207, 240] }, () => [
   128, 128, 128,
 ]);
 
@@ -46,17 +46,14 @@ t("createLookup() lookup recovers with 'misses' using callback", () => {
   assert.equal(c2("nonsense"), [128, 128, 128]);
 });
 
-t(
-  "createLookup() lookup throws error when key is missing and no callback is present",
-  () => {
-    try {
-      assert.equal(c3("green"), [128, 128, 128]);
-      throw new Error("should have already failed due to unknown lookup value");
-    } catch (err) {
-      assert.match((err as Error).message, "Failure in lookup");
-    }
+t("createLookup() lookup throws error when key is missing and no callback is present", () => {
+  try {
+    assert.equal(c3("green"), [128, 128, 128]);
+    throw new Error("should have already failed due to unknown lookup value");
+  } catch (err) {
+    assert.match((err as Error).message, "Failure in lookup");
   }
-);
+});
 
 t("boolean values are converted to string keys in map", () => {
   assert.equal(c4(true), "red");

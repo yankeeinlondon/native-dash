@@ -10,10 +10,14 @@
     "esModuleInterop": true,
     "sourceMap": false,
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    "baseUrl": "."
   },
-  "include": ["src", "tests"]
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

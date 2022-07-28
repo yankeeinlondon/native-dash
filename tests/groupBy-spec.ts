@@ -1,7 +1,5 @@
-import { Equal, Expect } from "@type-challenges/utils";
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { dasherize } from "../src/dasherize";
 import { groupBy } from "../src/groupBy";
 
 const t = suite("groupBy() function");
@@ -91,7 +89,6 @@ t("works with a function groupers instead of a property name", () => {
     { name: "sandy", color: "blue", age: 43 },
     { name: "sandy", color: "blue", age: 48 },
   ]);
-  type R = ReturnType<typeof groupBy>;
 
   assert.equal(grouped2["child"].length, 3);
   assert.equal(grouped2["adult"].length, 2);

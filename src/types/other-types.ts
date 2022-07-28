@@ -38,19 +38,15 @@ export enum DataType {
   dictionaryArray = "dictionary[]",
 }
 
-
-
 export interface IDictionaryDescriptor {
+  // eslint-disable-next-line no-use-before-define
   [key: string]: DataType | IDataDescriptor;
 }
 
 /**
  * A description of the type of a data structure or scalar value
  */
-export type IDataDescriptor =
-  | IDictionaryDescriptor
-  | Array<DataType | IDataDescriptor>
-  | DataType;
+export type IDataDescriptor = IDictionaryDescriptor | Array<DataType | IDataDescriptor> | DataType;
 
 /**
  * A type-guard to check whether a given variable is a non-null based object

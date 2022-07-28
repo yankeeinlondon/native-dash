@@ -1,7 +1,7 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { first, last } from "../src/index";
-import { Expect, Equal, ExpectExtends, NotAny, NotEqual } from "@type-challenges/utils";
+import { Expect, Equal, ExpectExtends } from "@type-challenges/utils";
 
 const f = suite("first() utility fn");
 const l = suite("last() utility fn");

@@ -1,5 +1,3 @@
-import { IFormattingOptions } from "./fluent-types";
-
 /** _italicize_ a block of text */
 export function italicize(text: string = "") {
   return `\u001b[3m${text}\u001b[0m`;

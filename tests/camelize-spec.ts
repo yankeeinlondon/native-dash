@@ -1,4 +1,4 @@
-import { Equal, Expect, ExpectExtends } from "@type-challenges/utils";
+import { Equal, Expect } from "@type-challenges/utils";
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { camelize } from "../src/camelize";
@@ -27,10 +27,7 @@ t("PascalCase is converted correctly", () => {
 });
 
 t("Bastar*d Case is converted correctly", () => {
-  assert.equal(
-    camelize(" CamelCase is not PascalCase ", true),
-    " camelCaseIsNotPascalCase "
-  );
+  assert.equal(camelize(" CamelCase is not PascalCase ", true), " camelCaseIsNotPascalCase ");
   assert.equal(camelize(" --fooBar--batShit--Crazy-", true), " fooBarBatShitCrazy");
 });
 
@@ -77,7 +74,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
     Expect<Equal<AWhiteHybridTrimmed, TARGET>>,
     // but whitespace can be preserved too
     Expect<Equal<AWhite, "  oneTwoThree  ">>,
-    Expect<Equal<AWhiteHybrid, "\n  oneTwoThree \t">>,
+    Expect<Equal<AWhiteHybrid, "\n  oneTwoThree \t">>
   ];
 
   const c: cases = [true, true, true, true, true, true, true, true];
