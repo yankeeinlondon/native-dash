@@ -4,6 +4,10 @@
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "license": "MIT",
   "author": "Ken Snyder <ken@ken.net>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yankeeinlondon/native-dash"
+  },
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
