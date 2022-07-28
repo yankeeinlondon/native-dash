@@ -1,7 +1,6 @@
 import { suite } from "uvu";
 import { hash } from "../src/hash";
 import * as assert from "uvu/assert";
-import { wait } from "common-types";
 
 const t = suite("hash => ");
 const text = "this is my test block";
@@ -15,8 +14,6 @@ t("hash is idempotent", async () => {
     h2,
     `The two hash results -- from the same originating string -- should be the same`
   );
-
-  await wait(50);
   const h3 = hash(text);
   assert.equal(h1, h3, `The two hash results -- even after small time delay -- are the same`);
 });
