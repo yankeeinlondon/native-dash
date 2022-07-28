@@ -5,16 +5,15 @@
   "license": "MIT",
   "author": "Ken Snyder <ken@ken.net>",
   "sideEffects": false,
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
-  "type": "module",
   "files": [
     "dist"
   ],
@@ -22,27 +21,34 @@
     "clean": "rimraf dist/*",
     "autoindex": "dd autoindex",
     "build": "run-s clean autoindex build:bundle",
-    "build:bundle": "tsup src/index.ts --dts --format=esm,cjs",
+    "build:bundle": "tsup src/index.ts --dts --format=esm,cjs --clean",
     "test": "yarn uvu tests -r ts-node/register",
     "watch": "run-p watch:*",
     "watch:autoindex": "npx dd autoindex --watch",
-    "watch:bundle": "npx tsup src/index.ts --dts --format='esm,cjs'"
+    "watch:bundle": "npx tsup src/index.ts --dts --format=esm,cjs",
+    "lint": "run-p lint:*",
+    "lint:src": "eslint src/**/*.ts --fix",
+    "lint:test": "eslint test/**/*.ts --fix",
+    "audit:fix": "pnpm audit --fix",
+    "release": "run-s lint release:latest test audit:fix build:validation release:bump",
+    "release:latest": "pnpm install",
+    "release:bump": "bumpp"
+  },
+  "dependencies": {
+    "brilliant-errors": "^0.6.0",
+    "inferred-types": "^0.22.0"
   },
   "devDependencies": {
     "@type-challenges/utils": "^0.1.1",
-    "@types/node": "^14.18.12",
-    "@types/node-fetch": "^3.0.3",
-    "dd": "^0.19.7",
-    "husky": "^7.0.4",
+    "@types/node": "^14.18.22",
+    "bumpp": "^8.2.1",
+    "dd": "^0.22.1",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.7.0",
-    "tsup": "^5.11.13",
-    "typescript": "^4.6.2",
-    "uvu": "^0.5.3",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.2.0",
+    "typescript": "^4.7.4",
+    "uvu": "^0.5.6",
     "watchlist": "^0.3.1"
-  },
-  "dependencies": {
-    "inferred-types": "^0.18.4"
   }
 }
