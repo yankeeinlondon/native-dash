@@ -1,6 +1,6 @@
 {
   "name": "native-dash",
-  "version": "1.22.1",
+  "version": "1.23.0",
   "description": "a replacement of lodash functions that are exported in both CJS and ES but where there are zero dependencies ... just modern JS code.",
   "license": "MIT",
   "author": "Ken Snyder <ken@ken.net>",
@@ -30,7 +30,7 @@
     "lint:src": "eslint src/**/*.ts --fix",
     "lint:test": "eslint tests/**/*.ts --fix",
     "audit:fix": "pnpm audit --fix",
-    "release": "run-s lint release:latest test audit:fix build:validation release:bump",
+    "release": "run-s lint release:latest test audit:fix release:bump",
     "release:latest": "pnpm install",
     "release:bump": "bumpp"
   },
