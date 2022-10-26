@@ -2,8 +2,8 @@
   "compilerOptions": {
     "declaration": false,
     "noEmit": true,
-    "target": "esnext",
-    "module": "commonjs",
+    "target": "ES2019",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,

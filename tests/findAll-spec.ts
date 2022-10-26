@@ -17,6 +17,7 @@ subjectAltName=DNS:dns1.local,IP:192.168.55.128`);
     assert.equal(typeof r, "object");
     assert.ok("all" in r);
     assert.ok("dns" in r);
+    assert.ok(r.dns === "antsle.local" || "dns1.local");
     assert.ok("ip" in r);
   }
 });

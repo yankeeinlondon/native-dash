@@ -7,6 +7,7 @@
 // file exports
 export * from "./IDictionary";
 export * from "./atRandom";
+export * from "./asArray";
 export * from "./base64";
 export * from "./between";
 export * from "./camelize";
@@ -20,6 +21,7 @@ export * from "./errors";
 export * from "./find";
 export * from "./findAll";
 export * from "./first";
+export * from "./filter";
 export * from "./firstKey";
 export * from "./flatten";
 export * from "./get";
