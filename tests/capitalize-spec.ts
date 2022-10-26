@@ -24,19 +24,15 @@ t("empty string creates no change", () => {
 t(`typing of a "string" is retained when passed through capitalize()`, () => {
   const before: string = "bob";
   const after = capitalize(before);
-  type cases = [
-    Expect<Equal<typeof after, string>>
-  ];
+  type cases = [Expect<Equal<typeof after, string>>];
   const c: cases = [true];
   assert.equal(c, c);
 });
 
-t(`typing of a string literal is modified appropriatly when passed through capitalize()`, () => {
-  const before = "bob";
+t(`typing of a string literal is modified appropriately when passed through capitalize()`, () => {
+  const before = "bob" as const;
   const after = capitalize(before);
-  type cases = [
-    Expect<Equal<typeof after, "Bob">>
-  ];
+  type cases = [Expect<Equal<typeof after, "Bob">>];
   const c: cases = [true];
   assert.equal(c, c);
 });
