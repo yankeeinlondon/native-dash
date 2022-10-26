@@ -124,8 +124,8 @@ const numericOps = <L extends LogicalCombinator>(config: NumericFilter, boolLogi
   };
 
   /** returns 0 or 1 FilterFn's */
-  const lessThan = <V extends number | undefined>(n: V) => {
-    const val = [(input?: V) => input !== undefined && input < n] as [(input: V) => boolean];
+  const lessThan = <V extends number>(n: V) => {
+    const val = [(input: V) => input !== undefined && input < n];
     return val as [ConditionFilter<NumericFilter>] | [];
   };
 
@@ -222,6 +222,3 @@ export const filter = <F extends FilterDefn, U extends boolean, C extends Logica
 ) => {
   return filterFn(config, ifUndefined, logicCombinator);
 };
-
-const f = filter({ equals: 5, notEqual: 33 });
-const f2 = filter({ startsWith: ["_", "."] });
