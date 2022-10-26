@@ -7,9 +7,7 @@
  * can be preserved if you change the `preserveWhitespace` flag._
  */
 export function snakerize(input: string, preserveWhitespace: boolean = false): string {
-  const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(
-    input
-  ) as RegExpExecArray;
+  const [_, preWhite, focus, postWhite] = /^(\s*)(.*?)(\s*)$/.exec(input) as RegExpExecArray;
 
   const convertInteriorSpace = (input: string) => input.replace(/\s+/gs, "_");
   const convertDashes = (input: string) => input.replace(/-/gs, "_");
