@@ -30,6 +30,7 @@
     "lint": "run-p lint:*",
     "lint:src": "eslint src/**/*.ts --fix",
     "lint:test": "eslint tests/**/*.ts --fix",
+    "lint:tsc": "tsc --noEmit",
     "audit:fix": "pnpm audit --fix",
     "release": "run-s lint release:latest test audit:fix release:bump",
     "release:latest": "pnpm install",
@@ -37,15 +38,14 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "brilliant-errors": "^0.7.2",
-    "inferred-types": "^0.37.2"
+    "brilliant-errors": "^0.7.3",
+    "inferred-types": "^0.37.4"
   },
   "devDependencies": {
     "@type-challenges/utils": "^0.1.1",
     "@types/node": "^14.18.34",
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
-    "@vitest/ui": "^0.25.6",
     "bumpp": "^8.2.1",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",

@@ -22,6 +22,4 @@ describe("uuid() function", () => {
       expect(isValid.test(uuid), `The value "${uuid}" is not considered a valid uuid`).toBeTruthy();
     });
   });
-  
-
 });
