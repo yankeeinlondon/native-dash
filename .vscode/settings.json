@@ -1,12 +1,13 @@
 {
-  "prettier.enable": false,
-  "prettier": false,
   "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
   "cSpell.words": [
     "antsle",
     "camelize",
     "dasherize",
     "pascalize",
+    "snakerize",
+    "Uppercasing",
     "watchlist"
   ]
 }

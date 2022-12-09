@@ -1,37 +1,36 @@
 import { Equal, Expect } from "@type-challenges/utils";
-import { suite } from "uvu";
-import * as assert from "uvu/assert";
+import { describe, it, expect } from "vitest";
 import { camelize } from "../src/camelize";
 
-const t = suite("camelize() function");
+describe("camelize()", () => {
 
-t("camelCase is converted correctly", () => {
-  assert.equal(camelize("PascalCase"), "pascalCase");
-  assert.equal(camelize(" PascalCase ", false), "pascalCase");
-  assert.equal(camelize(" PascalCase ", true), " pascalCase ");
-  assert.equal(camelize("OnceUponATime"), "onceUponATime");
-  assert.equal(camelize("78CamelCaseIsNotGreat9"), "78camelCaseIsNotGreat9");
+it("camelCase is converted correctly", () => {
+  expect(camelize("PascalCase")).toEqual("pascalCase");
+  expect(camelize(" PascalCase ", false)).toEqual("pascalCase");
+  expect(camelize(" PascalCase ", true)).toEqual(" pascalCase ");
+  expect(camelize("OnceUponATime")).toEqual("onceUponATime");
+  expect(camelize("78CamelCaseIsNotGreat9")).toEqual("78camelCaseIsNotGreat9");
 });
 
-t("snake_case is converted correctly", () => {
-  assert.equal(camelize("snake_case"), "snakeCase");
-  assert.equal(camelize(" snake_case ", true), " snakeCase ");
-  assert.equal(camelize("snake_case_in_rust"), "snakeCaseInRust");
+it("snake_case is converted correctly", () => {
+  expect(camelize("snake_case")).toEqual("snakeCase");
+  expect(camelize(" snake_case ", true)).toEqual(" snakeCase ");
+  expect(camelize("snake_case_in_rust")).toEqual("snakeCaseInRust");
 });
 
-t("PascalCase is converted correctly", () => {
-  assert.equal(camelize("dash-me"), "dashMe");
-  assert.equal(camelize("dash_me"), "dashMe");
-  assert.equal(camelize("dash-for-css"), "dashForCss");
-  assert.equal(camelize(" dash-me ", true), " dashMe ");
+it("PascalCase is converted correctly", () => {
+  expect(camelize("dash-me")).toEqual("dashMe");
+  expect(camelize("dash_me")).toEqual("dashMe");
+  expect(camelize("dash-for-css")).toEqual("dashForCss");
+  expect(camelize(" dash-me ", true)).toEqual(" dashMe ");
 });
 
-t("Bastar*d Case is converted correctly", () => {
-  assert.equal(camelize(" CamelCase is not PascalCase ", true), " camelCaseIsNotPascalCase ");
-  assert.equal(camelize(" --fooBar--batShit--Crazy-", true), " fooBarBatShitCrazy");
+it("Bastar*d Case is converted correctly", () => {
+  expect(camelize(" CamelCase is not PascalCase ", true)).toEqual(" camelCaseIsNotPascalCase ");
+  expect(camelize(" --fooBar--batShit--Crazy-", true)).toEqual(" fooBarBatShitCrazy");
 });
 
-t(`Using "string literal", type is modified appropriately`, () => {
+it(`Using "string literal", type is modified appropriately`, () => {
   const dash = "one-two-three";
   const snake = "one_two_three";
   const pascal = "OneTwoThree";
@@ -39,7 +38,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
 
   const white = "  one-two-three  ";
   const whiteHybrid = "\n  one-two-three \t";
-  // runtime vars after being tranformed
+  // runtime vars after being transformed
   const aDash = camelize(dash);
   const aSnake = camelize(snake);
   const aCamel = camelize(camel);
@@ -63,13 +62,13 @@ t(`Using "string literal", type is modified appropriately`, () => {
   type AWhiteHybrid = typeof aWhiteHybrid;
 
   type cases = [
-    // All non-whitespaced versions of a string are converted to correct string literal
+    // All non-white spaced versions of a string are converted to correct string literal
     Expect<Equal<ADash, TARGET>>,
     Expect<Equal<ASnake, TARGET>>,
     Expect<Equal<APascal, TARGET>>,
     // that includes those which need no transformation
     Expect<Equal<ACamel, TARGET>>,
-    // with a whitespaced input, the default is to trim it
+    // with a white spaced input, the default is to trim it
     Expect<Equal<AWhiteTrimmed, TARGET>>,
     Expect<Equal<AWhiteHybridTrimmed, TARGET>>,
     // but whitespace can be preserved too
@@ -78,7 +77,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
   ];
 
   const c: cases = [true, true, true, true, true, true, true, true];
-  assert.equal(c, c);
+  expect(c).toEqual(c);
 });
 
-t.run();
+});

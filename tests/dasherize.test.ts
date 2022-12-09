@@ -1,36 +1,35 @@
-
+import { describe, it, expect } from "vitest";
 import { Equal, Expect } from "@type-challenges/utils";
-import { suite } from "uvu";
-import * as assert from "uvu/assert";
 import { dasherize } from "../src/dasherize";
 
-const t = suite("dasherize() function");
+describe("dasherize() function", () => {
 
-t("camelCase is converted correctly", () => {
-  assert.equal(dasherize("camelCase"), "camel-case");
-  assert.equal(dasherize(" camelCase "), " camel-case ");
-  assert.equal(dasherize("onceUponATime"), "once-upon-a-time");
-  assert.equal(dasherize("78camelCaseIsNotGreat9"), "78camel-case-is-not-great9");
+
+  it("camelCase is converted correctly", () => {
+    expect(dasherize("camelCase")).toEqual("camel-case");
+    expect(dasherize(" camelCase ")).toEqual(" camel-case ");
+    expect(dasherize("onceUponATime")).toEqual("once-upon-a-time");
+    expect(dasherize("78camelCaseIsNotGreat9")).toEqual("78camel-case-is-not-great9");
+  });
+
+it("snake_case is converted correctly", () => {
+  expect(dasherize("snake_case")).toEqual("snake-case");
+  expect(dasherize("snake_case_in_rust")).toEqual("snake-case-in-rust");
+  expect(dasherize(" snake_case ")).toEqual(" snake-case ");
 });
 
-t("snake_case is converted correctly", () => {
-  assert.equal(dasherize("snake_case"), "snake-case");
-  assert.equal(dasherize("snake_case_in_rust"), "snake-case-in-rust");
-  assert.equal(dasherize(" snake_case "), " snake-case ");
+it("PascalCase is converted correctly", () => {
+  expect(dasherize("PascalCase")).toEqual("pascal-case");
+  expect(dasherize("PascalCaseForClasses")).toEqual("pascal-case-for-classes");
+  expect(dasherize(" PascalCase ")).toEqual(" pascal-case ");
 });
 
-t("PascalCase is converted correctly", () => {
-  assert.equal(dasherize("PascalCase"), "pascal-case");
-  assert.equal(dasherize("PascalCaseForClasses"), "pascal-case-for-classes");
-  assert.equal(dasherize(" PascalCase "), " pascal-case ");
+it("Bastar*d Case is converted correctly", () => {
+  expect(dasherize(" PascalCase is not camelCase ")).toEqual(" pascal-case-is-not-camel-case ");
+  expect(dasherize(" --fooBar--batShit--Crazy-")).toEqual(" foo-bar-bat-shit-crazy");
 });
 
-t("Bastar*d Case is converted correctly", () => {
-  assert.equal(dasherize(" PascalCase is not camelCase "), " pascal-case-is-not-camel-case ");
-  assert.equal(dasherize(" --fooBar--batShit--Crazy-"), " foo-bar-bat-shit-crazy");
-});
-
-t("Using string type, the types remain as string", () => {
+it("Using string type, the types remain as string", () => {
   const snake: string = "one_two_three";
   const aSnake = dasherize(snake);
   type Snake = typeof aSnake;
@@ -39,10 +38,10 @@ t("Using string type, the types remain as string", () => {
     Expect<Equal<Snake, string>>
   ];
   const c: cases = [true];
-  assert.equal(c, c);
+  expect(c).toEqual(c);
 });
 
-t(`Using "string literal", type is modified appropriately`, () => {
+it(`Using "string literal", type is modified appropriately`, () => {
   const dash = "one-two-three";
   const snake = "one_two_three";
   const pascal = "OneTwoThree";
@@ -50,7 +49,7 @@ t(`Using "string literal", type is modified appropriately`, () => {
 
   const white = "  one-two-three  ";
   const whiteHybrid = "\n  one-two-three \t";
-  // runtime vars after being tranformed
+  // runtime vars after being transformed
   const aDash = dasherize(dash);
   const aSnake = dasherize(snake);
   const aCamel = dasherize(camel);
@@ -74,13 +73,13 @@ t(`Using "string literal", type is modified appropriately`, () => {
   type AWhiteHybrid = typeof aWhiteHybrid;
 
   type cases = [
-    // All non-whitespaced versions of a string are converted to correct string literal
+    // All non-white spaced versions of a string are converted to correct string literal
     Expect<Equal<ADash, TARGET>>,
     Expect<Equal<ASnake, TARGET>>,
     Expect<Equal<APascal, TARGET>>,
     // that includes those which need no transformation
     Expect<Equal<ACamel, TARGET>>,
-    // with a whitespaced input, the default is to trim it
+    // with a white spaced input, the default is to trim it
     Expect<Equal<AWhiteTrimmed, TARGET>>,
     Expect<Equal<AWhiteHybridTrimmed, TARGET>>,
     // but whitespace can be preserved too
@@ -89,8 +88,8 @@ t(`Using "string literal", type is modified appropriately`, () => {
   ];
 
   const c: cases = [true, true, true, true, true, true, true, true];
-  assert.equal(c, c);
+  expect(c).toEqual(c);
 });
 
+});
 
-t.run();

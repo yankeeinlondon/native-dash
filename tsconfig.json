@@ -2,8 +2,8 @@
   "compilerOptions": {
     "declaration": false,
     "noEmit": true,
-    "target": "ES2019",
-    "module": "CommonJS",
+    "target": "ES2020",
+    "module": "ES2020",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
