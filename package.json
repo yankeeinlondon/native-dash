@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "brilliant-errors": "^0.7.3",
-    "inferred-types": "^0.37.4"
+    "inferred-types": "^0.37.6"
   },
   "devDependencies": {
     "@type-challenges/utils": "^0.1.1",
