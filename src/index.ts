@@ -16,6 +16,7 @@ export * from "./dasherize";
 export * from "./describe";
 export * from "./deserialize";
 export * from "./errors";
+export * from "./equal";
 export * from "./find";
 export * from "./findAll";
 export * from "./first";
